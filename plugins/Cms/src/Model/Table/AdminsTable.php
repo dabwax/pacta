@@ -1,5 +1,5 @@
 <?php
-namespace ContactManager\Model\Table;
+namespace Cms\Model\Table;
 
 use Cake\ORM\Table;
 

@@ -1,3 +1,6 @@
 .message, header {
     margin-bottom: 30px;
 }
+.btn-danger {
+    color: #FFF !important;
+}
