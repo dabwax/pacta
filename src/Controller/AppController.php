@@ -26,6 +26,7 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller
 {
+    public $session;
 
     /**
      * Initialization hook method.
@@ -38,5 +39,21 @@ class AppController extends Controller
     {
         parent::initialize();
         $this->loadComponent('Flash');
+
+        $this->session = $this->request->session();
+
+        // Se o controller for uma área restrita
+        if($this->areaRestrita == true) {
+            // Recupera a sessão de admin
+            $admin = $this->session->read("admin");
+
+            // Se não houver sessão de admin, redireciona o usuário para o login
+            if(empty($admin))
+            {
+                $this->Flash->error("Você não tem permissão para acessar esta página! Faça seu login.");
+
+                return $this->redirect(['controller' => 'authentication', 'action' => 'login']);
+            } // fim - return
+        } // fim - areaRestrita
     }
 }

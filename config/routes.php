@@ -48,6 +48,7 @@ Router::scope('/', function ($routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $routes->connect('/cms', ['plugin' => 'Cms', 'controller' => 'Authentication', 'action' => 'login']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
