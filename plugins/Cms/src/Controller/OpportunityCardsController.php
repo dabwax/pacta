@@ -26,22 +26,6 @@ class OpportunityCardsController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Opportunity Card id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $opportunityCard = $this->OpportunityCards->get($id, [
-            'contain' => ['Opportunities']
-        ]);
-        $this->set('opportunityCard', $opportunityCard);
-        $this->set('_serialize', ['opportunityCard']);
-    }
-
-    /**
      * Add method
      *
      * @return void Redirects on successful add, renders view otherwise.

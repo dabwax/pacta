@@ -39,24 +39,16 @@ class PostsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
         $validator
             ->requirePresence('title', 'create')
             ->notEmpty('title');
-            
-        $validator
-            ->requirePresence('slug', 'create')
-            ->notEmpty('slug');
-            
+
         $validator
             ->allowEmpty('description');
-            
+
         $validator
             ->allowEmpty('excerpt');
-            
-        $validator
-            ->add('published_date', 'valid', ['rule' => 'datetime'])
-            ->allowEmpty('published_date');
 
         return $validator;
     }

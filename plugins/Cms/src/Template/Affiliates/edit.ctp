@@ -18,7 +18,7 @@
         <legend><?= __('Edit Affiliate') ?></legend>
         <?php
             echo $this->Form->input('name');
-            echo $this->Form->input('date_of_accession');
+            echo $this->Form->input('date_of_accession', ['class' => 'datepicker', 'type' => 'text']);
             echo $this->Form->input('plan_id', ['options' => $plans, 'empty' => true]);
             echo $this->Form->input('responsible_name');
             echo $this->Form->input('responsible_email');

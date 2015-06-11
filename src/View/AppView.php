@@ -32,4 +32,5 @@ class AppView extends View
     public function initialize()
     {
     }
+
 }

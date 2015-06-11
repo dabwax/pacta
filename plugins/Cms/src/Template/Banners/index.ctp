@@ -21,13 +21,12 @@
         <tr>
             <td><?= $this->Number->format($banner->id) ?></td>
             <td><?= h($banner->title) ?></td>
-            <td><?= h($banner->attachment) ?></td>
+            <td><?= $this->Html->upload($banner->attachment, ['style' => 'height: 100px;']) ?></td>
             <td><?= h($banner->url) ?></td>
             <td><?= h($banner->created) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $banner->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $banner->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $banner->id], ['confirm' => __('Are you sure you want to delete # {0}?', $banner->id)]) ?>
+                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $banner->id]) ?>
+                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $banner->id], ['confirm' => __('Are you sure you want to delete # {0}?', $banner->id)]) ?>
             </td>
         </tr>
 

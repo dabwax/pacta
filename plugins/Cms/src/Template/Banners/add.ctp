@@ -5,13 +5,13 @@
     </ul>
 </div>
 <div class="banners form large-10 medium-9 columns">
-    <?= $this->Form->create($banner) ?>
+    <?= $this->Form->create($banner, ['type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Add Banner') ?></legend>
         <?php
             echo $this->Form->input('title');
-            echo $this->Form->input('description');
-            echo $this->Form->input('attachment');
+            echo $this->Form->input('description', ['class' => 'editor']);
+            echo $this->Form->input('attachment', ['type' => 'file']);
             echo $this->Form->input('url');
         ?>
     </fieldset>

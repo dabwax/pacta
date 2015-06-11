@@ -10,10 +10,9 @@
         <legend><?= __('Add Post') ?></legend>
         <?php
             echo $this->Form->input('title');
-            echo $this->Form->input('slug');
-            echo $this->Form->input('description');
-            echo $this->Form->input('excerpt');
-            echo $this->Form->input('published_date');
+            echo $this->Form->input('description', ['class' => 'editor']);
+            echo $this->Form->input('excerpt', ['class' => 'editor']);
+            echo $this->Form->input('published_date', ['class' => 'datepicker', 'type' => 'text']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

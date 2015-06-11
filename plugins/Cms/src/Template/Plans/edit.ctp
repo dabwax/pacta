@@ -20,7 +20,7 @@
         <legend><?= __('Edit Plan') ?></legend>
         <?php
             echo $this->Form->input('name');
-            echo $this->Form->input('content');
+            echo $this->Form->input('content',['class' => 'editor']);
             echo $this->Form->input('price');
             echo $this->Form->input('destaque_1');
             echo $this->Form->input('destaque_2');

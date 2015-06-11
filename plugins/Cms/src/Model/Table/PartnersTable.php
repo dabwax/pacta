@@ -39,15 +39,11 @@ class PartnersTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
         $validator
             ->requirePresence('title', 'create')
             ->notEmpty('title');
-            
-        $validator
-            ->requirePresence('attachment', 'create')
-            ->notEmpty('attachment');
-            
+
         $validator
             ->allowEmpty('url');
 

@@ -21,9 +21,29 @@ class Opportunity extends Entity
         'city' => true,
         'state' => true,
         'country' => true,
-        'date' => true,
+        'date_of_accession' => true,
         'type' => true,
         'description' => true,
         'opportunity_cards' => true,
     ];
+
+    protected function _getDateOfAccession($field)
+    {
+        if(!empty($field) && is_object($field)) {
+            $field = $field->format("d/m/Y");
+        }
+
+        return $field;
+    }
+
+    protected function _setDateOfAccession($field)
+    {
+        if(is_string($field)) {
+            $dateTime = \DateTime::createFromFormat("d/m/Y", $field);
+
+            $field = $dateTime->format("Y-m-d");
+        }
+
+        return $field;
+    }
 }

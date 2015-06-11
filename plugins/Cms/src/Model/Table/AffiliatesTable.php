@@ -16,6 +16,7 @@ class AffiliatesTable extends Table
 {
 
     /**
+     *
      * Initialize method
      *
      * @param array $config The configuration for the Table.
@@ -44,20 +45,16 @@ class AffiliatesTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
         $validator
             ->allowEmpty('name');
-            
-        $validator
-            ->add('date_of_accession', 'valid', ['rule' => 'datetime'])
-            ->allowEmpty('date_of_accession');
-            
+
         $validator
             ->allowEmpty('responsible_name');
-            
+
         $validator
             ->allowEmpty('responsible_email');
-            
+
         $validator
             ->add('status', 'valid', ['rule' => 'boolean'])
             ->allowEmpty('status');

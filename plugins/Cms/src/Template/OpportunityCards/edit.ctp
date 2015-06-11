@@ -19,7 +19,7 @@
         <?php
             echo $this->Form->input('name');
             echo $this->Form->input('email');
-            echo $this->Form->input('date');
+            echo $this->Form->input('date_of_accession', ['class' => 'datepicker', 'type' => 'text']);
             echo $this->Form->input('opportunity_id', ['options' => $opportunities, 'empty' => true]);
         ?>
     </fieldset>

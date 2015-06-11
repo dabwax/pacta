@@ -39,19 +39,15 @@ class BannersTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
         $validator
             ->requirePresence('title', 'create')
             ->notEmpty('title');
-            
+
         $validator
             ->requirePresence('description', 'create')
             ->notEmpty('description');
-            
-        $validator
-            ->requirePresence('attachment', 'create')
-            ->notEmpty('attachment');
-            
+
         $validator
             ->allowEmpty('url');
 

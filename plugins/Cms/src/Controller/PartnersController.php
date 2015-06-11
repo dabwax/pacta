@@ -11,6 +11,11 @@ use Cms\Controller\AppController;
 class PartnersController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Upload');
+    }
     /**
      * Index method
      *
@@ -47,6 +52,7 @@ class PartnersController extends AppController
     {
         $partner = $this->Partners->newEntity();
         if ($this->request->is('post')) {
+            $this->request->data['attachment'] = $this->Upload->uploadIt("attachment");
             $partner = $this->Partners->patchEntity($partner, $this->request->data);
             if ($this->Partners->save($partner)) {
                 $this->Flash->success(__('The partner has been saved.'));
@@ -72,6 +78,7 @@ class PartnersController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+            $this->request->data['attachment'] = $this->Upload->uploadIt("attachment");
             $partner = $this->Partners->patchEntity($partner, $this->request->data);
             if ($this->Partners->save($partner)) {
                 $this->Flash->success(__('The partner has been saved.'));

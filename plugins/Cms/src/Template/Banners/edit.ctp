@@ -11,15 +11,21 @@
     </ul>
 </div>
 <div class="banners form large-10 medium-9 columns">
-    <?= $this->Form->create($banner) ?>
+    <?= $this->Form->create($banner, ['type' => 'file']); ?>
     <fieldset>
         <legend><?= __('Edit Banner') ?></legend>
         <?php
             echo $this->Form->input('title');
-            echo $this->Form->input('description');
-            echo $this->Form->input('attachment');
+            echo $this->Form->input('description', ['class' => 'editor']);
+            echo $this->Form->input('attachment', ['type' => 'file']);
             echo $this->Form->input('url');
         ?>
+
+        <strong>Anexo Atual</strong>
+
+        <div class="clearfix"></div>
+
+        <?php echo $this->Html->upload($banner->attachment, ['style' => 'max-height: 360px;']); ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

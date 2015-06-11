@@ -1,0 +1,19 @@
+{
+  "name": "pacta",
+  "version": "0.0.0",
+  "homepage": "https://github.com/lhas/pacta",
+  "authors": [
+    "luizhrqas <luizhrqas@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -28,6 +28,12 @@ class AppController extends Controller
 {
     public $session;
 
+    public $helpers = [
+        'Html' => [
+            'className' => 'Pacta'
+        ]
+    ];
+
     /**
      * Initialization hook method.
      *

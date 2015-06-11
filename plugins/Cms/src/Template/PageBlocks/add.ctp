@@ -12,9 +12,9 @@
         <legend><?= __('Add Page Block') ?></legend>
         <?php
             echo $this->Form->input('name');
-            echo $this->Form->input('content');
+            echo $this->Form->input('content', ['class' => 'editor']);
             echo $this->Form->input('page_id', ['options' => $pages, 'empty' => true]);
-            echo $this->Form->input('position');
+            echo $this->Form->input('position', ['value' => 0]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -23,4 +23,24 @@ class Affiliate extends Entity
         'status' => true,
         'plan' => true,
     ];
+
+    protected function _getDateOfAccession($field)
+    {
+        if(!empty($field) && is_object($field)) {
+            $field = $field->format("d/m/Y");
+        }
+
+        return $field;
+    }
+
+    protected function _setDateOfAccession($field)
+    {
+        if(is_string($field)) {
+            $dateTime = \DateTime::createFromFormat("d/m/Y", $field);
+
+            $field = $dateTime->format("Y-m-d");
+        }
+
+        return $field;
+    }
 }

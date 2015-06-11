@@ -5,12 +5,12 @@
     </ul>
 </div>
 <div class="partners form large-10 medium-9 columns">
-    <?= $this->Form->create($partner) ?>
+    <?= $this->Form->create($partner, ['type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Add Partner') ?></legend>
         <?php
             echo $this->Form->input('title');
-            echo $this->Form->input('attachment');
+            echo $this->Form->input('attachment', ['type' => 'file']);
             echo $this->Form->input('url');
         ?>
     </fieldset>

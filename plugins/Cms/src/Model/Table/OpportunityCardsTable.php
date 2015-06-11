@@ -43,17 +43,13 @@ class OpportunityCardsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
         $validator
             ->allowEmpty('name');
-            
+
         $validator
             ->add('email', 'valid', ['rule' => 'email'])
             ->allowEmpty('email');
-            
-        $validator
-            ->add('date', 'valid', ['rule' => 'datetime'])
-            ->allowEmpty('date');
 
         return $validator;
     }

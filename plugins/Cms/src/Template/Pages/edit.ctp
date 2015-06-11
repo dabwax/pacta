@@ -18,8 +18,7 @@
         <legend><?= __('Edit Page') ?></legend>
         <?php
             echo $this->Form->input('name');
-            echo $this->Form->input('content');
-            echo $this->Form->input('slug');
+            echo $this->Form->input('content', ['class' => 'editor']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

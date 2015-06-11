@@ -33,7 +33,6 @@
             <td><?= h($affiliate->responsible_email) ?></td>
             <td><?= h($affiliate->status) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $affiliate->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $affiliate->id]) ?>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $affiliate->id], ['confirm' => __('Are you sure you want to delete # {0}?', $affiliate->id)]) ?>
             </td>

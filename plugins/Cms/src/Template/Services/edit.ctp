@@ -16,11 +16,11 @@
         <legend><?= __('Edit Service') ?></legend>
         <?php
             echo $this->Form->input('name');
-            echo $this->Form->input('content');
+            echo $this->Form->input('content', ['class' => 'editor']);
             echo $this->Form->input('tab_1_title');
-            echo $this->Form->input('tab_1_content');
+            echo $this->Form->input('tab_1_content', ['class' => 'editor']);
             echo $this->Form->input('tab_2_title');
-            echo $this->Form->input('tab_2_content');
+            echo $this->Form->input('tab_2_content', ['class' => 'editor']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

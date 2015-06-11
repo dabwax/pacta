@@ -26,22 +26,6 @@ class AffiliatesController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Affiliate id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $affiliate = $this->Affiliates->get($id, [
-            'contain' => ['Plans']
-        ]);
-        $this->set('affiliate', $affiliate);
-        $this->set('_serialize', ['affiliate']);
-    }
-
-    /**
      * Add method
      *
      * @return void Redirects on successful add, renders view otherwise.

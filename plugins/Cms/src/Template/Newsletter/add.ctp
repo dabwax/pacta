@@ -10,7 +10,7 @@
         <legend><?= __('Add Newsletter') ?></legend>
         <?php
             echo $this->Form->input('email');
-            echo $this->Form->input('ip_address');
+            echo $this->Form->input('ip_address', ['value' => $_SERVER['REMOTE_ADDR']]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

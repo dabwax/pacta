@@ -17,9 +17,9 @@
             echo $this->Form->input('city');
             echo $this->Form->input('state');
             echo $this->Form->input('country');
-            echo $this->Form->input('date');
+            echo $this->Form->input('date_of_accession', ['class' => 'datepicker', 'type' => 'text']);
             echo $this->Form->input('type');
-            echo $this->Form->input('description');
+            echo $this->Form->input('description', ['class' => 'editor']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

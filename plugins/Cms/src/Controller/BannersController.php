@@ -11,6 +11,12 @@ use Cms\Controller\AppController;
 class BannersController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Upload');
+    }
+
     /**
      * Index method
      *
@@ -23,22 +29,6 @@ class BannersController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Banner id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $banner = $this->Banners->get($id, [
-            'contain' => []
-        ]);
-        $this->set('banner', $banner);
-        $this->set('_serialize', ['banner']);
-    }
-
-    /**
      * Add method
      *
      * @return void Redirects on successful add, renders view otherwise.
@@ -47,7 +37,10 @@ class BannersController extends AppController
     {
         $banner = $this->Banners->newEntity();
         if ($this->request->is('post')) {
-            $banner = $this->Banners->patchEntity($banner, $this->request->data);
+
+            $this->request->data['attachment'] = $this->Upload->uploadIt("attachment");
+
+            $banner = $this->Banners->newEntity($this->request->data);
             if ($this->Banners->save($banner)) {
                 $this->Flash->success(__('The banner has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -72,6 +65,7 @@ class BannersController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+            $this->request->data['attachment'] = $this->Upload->uploadIt("attachment");
             $banner = $this->Banners->patchEntity($banner, $this->request->data);
             if ($this->Banners->save($banner)) {
                 $this->Flash->success(__('The banner has been saved.'));

@@ -11,14 +11,19 @@
     </ul>
 </div>
 <div class="partners form large-10 medium-9 columns">
-    <?= $this->Form->create($partner) ?>
+    <?= $this->Form->create($partner, ['type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Edit Partner') ?></legend>
         <?php
             echo $this->Form->input('title');
-            echo $this->Form->input('attachment');
+            echo $this->Form->input('attachment', ['type' => 'file']);
             echo $this->Form->input('url');
         ?>
+        <strong>Anexo Atual</strong>
+
+        <div class="clearfix"></div>
+
+        <?php echo $this->Html->upload($partner->attachment, ['style' => 'max-height: 360px;']); ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

@@ -43,32 +43,28 @@ class OpportunitiesTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
         $validator
             ->allowEmpty('name');
-            
+
         $validator
             ->allowEmpty('role');
-            
+
         $validator
             ->allowEmpty('local');
-            
+
         $validator
             ->allowEmpty('city');
-            
+
         $validator
             ->allowEmpty('state');
-            
+
         $validator
             ->allowEmpty('country');
-            
-        $validator
-            ->add('date', 'valid', ['rule' => 'datetime'])
-            ->allowEmpty('date');
-            
+
         $validator
             ->allowEmpty('type');
-            
+
         $validator
             ->allowEmpty('description');
 

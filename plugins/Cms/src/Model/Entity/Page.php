@@ -2,6 +2,7 @@
 namespace Cms\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\Utility\Inflector;
 
 /**
  * Page Entity.
@@ -20,4 +21,10 @@ class Page extends Entity
         'slug' => true,
         'page_blocks' => true,
     ];
+
+    protected function _setName($title)
+    {
+        $this->set('slug', strtolower(Inflector::slug($title)));
+        return $title;
+    }
 }

@@ -33,9 +33,8 @@
             <td><?= h($plan->destaque_3) ?></td>
             <td><?= h($plan->created) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $plan->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $plan->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $plan->id], ['confirm' => __('Are you sure you want to delete # {0}?', $plan->id)]) ?>
+                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $plan->id]) ?>
+                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $plan->id], ['confirm' => __('Are you sure you want to delete # {0}?', $plan->id)]) ?>
             </td>
         </tr>
 

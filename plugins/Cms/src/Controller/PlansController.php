@@ -23,22 +23,6 @@ class PlansController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Plan id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $plan = $this->Plans->get($id, [
-            'contain' => ['Affiliates', 'Contracts']
-        ]);
-        $this->set('plan', $plan);
-        $this->set('_serialize', ['plan']);
-    }
-
-    /**
      * Add method
      *
      * @return void Redirects on successful add, renders view otherwise.
