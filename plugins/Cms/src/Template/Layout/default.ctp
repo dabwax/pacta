@@ -9,6 +9,7 @@
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css') ?>
+    <?= $this->Html->css('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css') ?>
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('/cms/css/cms.css') ?>
@@ -27,8 +28,10 @@
             <span><?= $this->fetch('title') ?></span>
         </div>
         <div class="header-help">
-            <span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
-            <span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
+
+            <?php if($admin) { ?>
+            <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>" class="btn btn-danger"><i class="fa fa-sign-out"></i> Sair do Sistema</a>
+            <?php } ?>
         </div>
     </header>
     <div id="container">

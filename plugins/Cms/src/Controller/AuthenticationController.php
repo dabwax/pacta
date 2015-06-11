@@ -71,4 +71,25 @@ class AuthenticationController extends AppController
         } // fim - POST
     } // fim - login
 
+/**
+ * Página de logout.
+ *
+ * @author henrique <henrique@bblender.com.br>
+ * @return void
+ */
+    public function logout()
+    {
+        $admin = $this->session->read("admin");
+
+        if($admin) {
+            $this->Flash->success("Você saiu da área restrita do sistema com sucesso.");
+
+            $this->session->delete("admin");
+        } else {
+            $this->Flash->error("Você não está logado.");
+        }
+
+        return $this->redirect(['controller' => 'authentication', 'action' => 'login']);
+    } // fim - logout
+
 }
