@@ -320,7 +320,6 @@ td {
 .noty_text {
     font-size: 20px;
     font-weight: bold;
-
     font-family: 'Open Sans Condensed', sans-serif !important;
 }
 .col-excluir-registro {
@@ -341,4 +340,9 @@ input[type="checkbox"] {
     top: 10px;
     position: relative;
     margin-right: 10px;
+}
+.btn-success, .btn-warning {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Open Sans Condensed', sans-serif !important;
 }

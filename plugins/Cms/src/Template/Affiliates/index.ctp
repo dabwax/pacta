@@ -10,12 +10,10 @@
     <table class="table">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('status', ' ') ?></th>
+            <th><?= $this->Paginator->sort('status', 'S.') ?></th>
             <th><?= $this->Paginator->sort('id', '#') ?></th>
             <th><?= $this->Paginator->sort('name', 'Associado') ?></th>
-            <th><?= $this->Paginator->sort('date_of_accession', 'Data de Associação') ?></th>
             <th><?= $this->Paginator->sort('plan_id', 'Plano') ?></th>
-            <th><?= $this->Paginator->sort('responsible_name', 'Responsável') ?></th>
             <th><?= $this->Paginator->sort('responsible_email', 'E-mail') ?></th>
             <th class="actions"><?= __('Ações') ?></th>
         </tr>
@@ -27,15 +25,21 @@
             <? if($affiliate->status == 0 ) : ?><td> <span class="label label-danger" title="Disponível">&nbsp;</span> </td><?php endif; ?>
             <td><?= $this->Number->format($affiliate->id) ?></td>
             <td><?= h($affiliate->name) ?></td>
-            <td><?= h($affiliate->date_of_accession) ?></td>
             <td>
                 <?= $affiliate->has('plan') ? $this->Html->link($affiliate->plan->name, ['controller' => 'Plans', 'action' => 'edit', $affiliate->plan->id], ['class' => 'label label-default']) : '' ?>
             </td>
-            <td><?= h($affiliate->responsible_name) ?></td>
             <td><?= h($affiliate->responsible_email) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('Editar'), ['action' => 'edit', $affiliate->id], ['class' => 'btn btn-primary']) ?>
-                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $affiliate->id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $affiliate->id)]) ?>
+
+                <? if($affiliate->status == 1 ) : ?>
+                    <?= $this->Form->postLink(__('Desaprovar'), ['action' => 'disapprove_approve', $affiliate->id, 0], ['class' => 'btn btn-warning', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $affiliate->id)]) ?>
+                <?php endif; ?>
+
+                <? if($affiliate->status == 0 ) : ?>
+                    <?= $this->Form->postLink(__('Aprovar'), ['action' => 'disapprove_approve', $affiliate->id, 1], ['class' => 'btn btn-success', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $affiliate->id)]) ?>
+                <?php endif; ?>
+                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $affiliate->id], ['class' => 'btn btn-danger', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $affiliate->id)]) ?>
             </td>
         </tr>
 

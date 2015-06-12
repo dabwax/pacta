@@ -7,8 +7,8 @@
             echo $this->Form->input('name', ['label' => 'Nome', 'required' => true, 'minlength' => 5]);
             echo $this->Form->input('date_of_accession', ['class' => 'datepicker', 'type' => 'text', 'label' => 'Data de Associação', 'required' => true, 'minlength' => 10]);
             echo $this->Form->input('plan_id', ['options' => $plans, 'empty' => 'Selecionar Plano', 'label' => 'Plano Atual', 'required' => true]);
-            echo $this->Form->input('responsible_name', ['label' => 'Nome do Responsável', 'required' => true]);
-            echo $this->Form->input('responsible_email', ['label' => 'E-mail do Responsável', 'required' => true, 'type' => 'email']);
+            echo $this->Form->input('responsible_name', ['label' => 'Nome do Responsável', 'required' => true, 'minlength' => 5]);
+            echo $this->Form->input('responsible_email', ['label' => 'E-mail do Responsável', 'required' => true, 'type' => 'email', 'minlength' => 10]);
             echo $this->Form->input('status');
         ?>
     </fieldset>

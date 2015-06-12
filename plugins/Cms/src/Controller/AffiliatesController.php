@@ -11,6 +11,26 @@ use Cms\Controller\AppController;
 class AffiliatesController extends AppController
 {
 
+    public function disapprove_approve($id, $status)
+    {
+        $this->autoRender = false;
+
+
+        $affiliate = $this->Affiliates->get($id, [
+            'contain' => []
+        ]);
+
+        $affiliate->status = $status;
+
+        $this->Affiliates->save($affiliate);
+
+        $label = ($status == 0) ? "desaprovado" : "aprovado";
+
+        $this->Flash->success(__("O associado foi $label."));
+
+        return $this->redirect(['action' => 'index']);
+    }
+
     /**
      * Index method
      *
@@ -36,10 +56,10 @@ class AffiliatesController extends AppController
         if ($this->request->is('post')) {
             $affiliate = $this->Affiliates->patchEntity($affiliate, $this->request->data);
             if ($this->Affiliates->save($affiliate)) {
-                $this->Flash->success(__('The affiliate has been saved.'));
+                $this->Flash->success(__('O associado foi cadastrado.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The affiliate could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível cadastrar o associado.'));
             }
         }
         $plans = $this->Affiliates->Plans->find('list', ['limit' => 200]);
@@ -62,10 +82,10 @@ class AffiliatesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $affiliate = $this->Affiliates->patchEntity($affiliate, $this->request->data);
             if ($this->Affiliates->save($affiliate)) {
-                $this->Flash->success(__('The affiliate has been saved.'));
+                $this->Flash->success(__('O associado foi editado.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The affiliate could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível editar o associado.'));
             }
         }
         $plans = $this->Affiliates->Plans->find('list', ['limit' => 200]);
@@ -85,9 +105,9 @@ class AffiliatesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $affiliate = $this->Affiliates->get($id);
         if ($this->Affiliates->delete($affiliate)) {
-            $this->Flash->success(__('The affiliate has been deleted.'));
+            $this->Flash->success(__('O associado foi excluído.'));
         } else {
-            $this->Flash->error(__('The affiliate could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Não foi possível excluir o associado.'));
         }
         return $this->redirect(['action' => 'index']);
     }

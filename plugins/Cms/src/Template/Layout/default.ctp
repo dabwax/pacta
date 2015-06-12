@@ -69,9 +69,6 @@
                             <li>
                                 <a href="<?php echo $this->Url->build( ['controller' => 'affiliates', 'action' => 'index'] ); ?>"> <i class="fa fa-user"></i> Listar Associados</a>
                             </li>
-                            <li>
-                                <a href="<?php echo $this->Url->build( ['controller' => 'affiliates', 'action' => 'approve'] ); ?>"><i class="fa fa-folder"></i> Aprovar Associados</a>
-                            </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-folder"></i> Listar Contratos de Adesão</a>
