@@ -71,26 +71,23 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-folder"></i> Listar Contratos de Adesão</a>
+                                <a href="<?php echo $this->Url->build(['controller' => 'contracts', 'action' => 'index']); ?>"><i class="fa fa-user"></i> Listar Contratos de Adesão</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-pencil"></i> Editar Institucional</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-pencil"></i> Editar Nossos Serviços</a>
+                                <a href="<?php echo $this->Url->build(['controller' => 'pages', 'action' => 'index']); ?>"><i class="fa fa-user"></i> Editar Páginas</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-pencil"></i> Listar Oportunidades</a>
+                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-user"></i> Listar Oportunidades</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-pencil"></i> Listar Pins (Onde Estamos)</a>
+                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-user"></i> Listar Pins (Onde Estamos)</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-pencil"></i> Listar Planos Farem</a>
+                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-user"></i> Listar Planos Farem</a>
                             </li>
                         </ul>
 
