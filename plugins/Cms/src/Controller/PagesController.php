@@ -23,22 +23,6 @@ class PagesController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Page id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $page = $this->Pages->get($id, [
-            'contain' => ['PageBlocks']
-        ]);
-        $this->set('page', $page);
-        $this->set('_serialize', ['page']);
-    }
-
-    /**
      * Add method
      *
      * @return void Redirects on successful add, renders view otherwise.
@@ -49,10 +33,10 @@ class PagesController extends AppController
         if ($this->request->is('post')) {
             $page = $this->Pages->patchEntity($page, $this->request->data);
             if ($this->Pages->save($page)) {
-                $this->Flash->success(__('The page has been saved.'));
+                $this->Flash->success(__('A página foi cadastrada.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The page could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível cadastrar a página.'));
             }
         }
         $this->set(compact('page'));
@@ -74,10 +58,10 @@ class PagesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $page = $this->Pages->patchEntity($page, $this->request->data);
             if ($this->Pages->save($page)) {
-                $this->Flash->success(__('The page has been saved.'));
+                $this->Flash->success(__('A página foi salva.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The page could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível editar a página.'));
             }
         }
         $this->set(compact('page'));
@@ -96,9 +80,9 @@ class PagesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $page = $this->Pages->get($id);
         if ($this->Pages->delete($page)) {
-            $this->Flash->success(__('The page has been deleted.'));
+                $this->Flash->success(__('A página foi excluída.'));
         } else {
-            $this->Flash->error(__('The page could not be deleted. Please, try again.'));
+                $this->Flash->error(__('Não foi possível excluir a página.'));
         }
         return $this->redirect(['action' => 'index']);
     }

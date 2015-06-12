@@ -1,26 +1,22 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $page->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $page->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Pages'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Page Blocks'), ['controller' => 'PageBlocks', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Page Block'), ['controller' => 'PageBlocks', 'action' => 'add']) ?></li>
-    </ul>
-</div>
-<div class="pages form large-10 medium-9 columns">
-    <?= $this->Form->create($page) ?>
+<div class="col-lg-12">
+    <?= $this->Form->create($page, ['class' => 'validate']) ?>
     <fieldset>
-        <legend><?= __('Edit Page') ?></legend>
+        <h2 class="titulo-painel"><i class="fa fa-user"></i> <?= __('Editar Página') ?></h2>
+        <hr>
         <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('content', ['class' => 'editor']);
+            echo $this->Form->input('name', ['label' => 'Nome', 'required' => true]);
+            echo $this->Form->input('content', ['class' => 'editor', 'label' => 'Conteúdo']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+</div>
+
+<div class="col-lg-12 col-excluir-registro">
+<?= $this->Form->postLink(
+                __('Excluir este registro'),
+                ['action' => 'delete', $page->id],
+                ['class' => 'btn btn-danger btn-block', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $page->id)]
+            )
+        ?>
 </div>

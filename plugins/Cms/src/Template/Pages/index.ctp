@@ -1,20 +1,16 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Page'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Page Blocks'), ['controller' => 'PageBlocks', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Page Block'), ['controller' => 'PageBlocks', 'action' => 'add']) ?></li>
-    </ul>
+<div class="col-lg-12">
+
+<div class="form-group">
+    <?= $this->Html->link(__('Adicionar Nova Página'), ['action' => 'add'], ['class' => 'btn btn-primary btn-block']) ?>
 </div>
-<div class="pages index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+
+    <table class="table">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('name') ?></th>
-            <th><?= $this->Paginator->sort('slug') ?></th>
-            <th><?= $this->Paginator->sort('created') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th><?= $this->Paginator->sort('id', '#') ?></th>
+            <th><?= $this->Paginator->sort('name', 'Nome') ?></th>
+            <th><?= $this->Paginator->sort('created', 'Data de Criação') ?></th>
+            <th class="actions"><?= __('Ações') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -22,12 +18,10 @@
         <tr>
             <td><?= $this->Number->format($page->id) ?></td>
             <td><?= h($page->name) ?></td>
-            <td><?= h($page->slug) ?></td>
-            <td><?= h($page->created) ?></td>
+            <td><?= h($page->created->format("d/m/Y")) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $page->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $page->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $page->id], ['confirm' => __('Are you sure you want to delete # {0}?', $page->id)]) ?>
+                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $page->id], ['class' => 'btn btn-primary']) ?>
+                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $page->id], ['class' => 'btn btn-danger', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $page->id)]) ?>
             </td>
         </tr>
 
