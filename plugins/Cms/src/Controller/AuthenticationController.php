@@ -12,6 +12,7 @@ use Cms\Model\Entity\Admin;
  */
 class AuthenticationController extends AppController
 {
+    public $areaRestrita = false;
 
 /**
  * Página de login.

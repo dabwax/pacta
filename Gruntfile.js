@@ -11,6 +11,7 @@ module.exports = function(grunt) {
             'webroot/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
             'webroot/vendor/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js',
             'webroot/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.min.js',
+            'webroot/vendor/noty/js/noty/packaged/jquery.noty.packaged.min.js',
           ],
         }
       }
@@ -20,6 +21,7 @@ module.exports = function(grunt) {
         files: {
           'webroot/css/cms.min.css': [
             'plugins/Cms/webroot/css/cms.css',
+            'webroot/css/animate.css',
             'webroot/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css',
           ]
         }

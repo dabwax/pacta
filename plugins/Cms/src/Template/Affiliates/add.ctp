@@ -1,21 +1,14 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Affiliates'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Plans'), ['controller' => 'Plans', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Plan'), ['controller' => 'Plans', 'action' => 'add']) ?></li>
-    </ul>
-</div>
-<div class="affiliates form large-10 medium-9 columns">
-    <?= $this->Form->create($affiliate) ?>
+<div class="col-lg-12">
+    <?= $this->Form->create($affiliate, ['class' => 'validate']) ?>
+        <h2 class="titulo-painel"><i class="fa fa-user"></i> <?= __('Adicionar Novo Associado') ?></h2>
+        <hr>
     <fieldset>
-        <legend><?= __('Add Affiliate') ?></legend>
         <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('date_of_accession', ['class' => 'datepicker', 'type' => 'text']);
-            echo $this->Form->input('plan_id', ['options' => $plans, 'empty' => true]);
-            echo $this->Form->input('responsible_name');
-            echo $this->Form->input('responsible_email');
+            echo $this->Form->input('name', ['label' => 'Nome', 'required' => true, 'minlength' => 5]);
+            echo $this->Form->input('date_of_accession', ['class' => 'datepicker', 'type' => 'text', 'label' => 'Data de Associação', 'required' => true, 'minlength' => 10]);
+            echo $this->Form->input('plan_id', ['options' => $plans, 'empty' => 'Selecionar Plano', 'label' => 'Plano Atual', 'required' => true]);
+            echo $this->Form->input('responsible_name', ['label' => 'Nome do Responsável', 'required' => true]);
+            echo $this->Form->input('responsible_email', ['label' => 'E-mail do Responsável', 'required' => true, 'type' => 'email']);
             echo $this->Form->input('status');
         ?>
     </fieldset>

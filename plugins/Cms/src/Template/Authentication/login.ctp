@@ -3,6 +3,6 @@
 <?php echo $this->Form->input("password", ['label' => 'Senha']); ?>
 
 <div class="form-group">
-    <button type="submit" class="btn btn-success btn-block">Entrar</button>
+    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
 </div>
 <?php echo $this->Form->end(); ?>

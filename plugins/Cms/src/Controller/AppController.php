@@ -6,6 +6,7 @@ use App\Controller\AppController as BaseController;
 
 class AppController extends BaseController
 {
+    public $areaRestrita = true;
 
     public function initialize()
     {

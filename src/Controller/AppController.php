@@ -31,6 +31,9 @@ class AppController extends Controller
     public $helpers = [
         'Html' => [
             'className' => 'Pacta'
+        ],
+        'Form' => [
+            'templates' => 'bootstrap_form'
         ]
     ];
 

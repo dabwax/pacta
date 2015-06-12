@@ -1,7 +1,13 @@
-<?php
-$class = 'message';
-if (!empty($params['class'])) {
-    $class .= ' ' . $params['class'];
-}
-?>
-<div class="<?= h($class) ?>"><?= h($message) ?></div>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var n = noty({
+            text: '<?= h($message) ?>',
+            animation: {
+                open: 'animated flipInX', // Animate.css class names
+                close: 'animated flipOutX' // Animate.css class names
+            }
+        });
+
+    });
+</script>

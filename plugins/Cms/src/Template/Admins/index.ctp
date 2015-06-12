@@ -1,11 +1,13 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Ações') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('Adicionar Novo'), ['action' => 'add'], ['class' => 'btn btn-default']) ?></li>
-    </ul>
+<div class="col-lg-12">
+
+<h2 class="titulo-painel"><i class="fa fa-user"></i> Listar Usuários</h2>
+<hr>
+
+<div class="form-group">
+<?= $this->Html->link(__('Adicionar Novo'), ['action' => 'add'], ['class' => 'btn btn-primary btn-block']) ?>
 </div>
-<div class="admins index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+
+    <table class="table">
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('id', '#') ?></th>
@@ -15,14 +17,17 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($admins as $admin): ?>
+    <?php foreach ($admins as $a): ?>
         <tr>
-            <td>#<?= $this->Number->format($admin->id) ?></td>
-            <td><?= h($admin->username) ?></td>
-            <td><?= h($admin->created->format("d/m/Y H:i:s")) ?></td>
+            <td>#<?= $this->Number->format($a->id) ?></td>
+            <td><?= h($a->username) ?></td>
+            <td><?= h($a->created->format("d/m/Y H:i:s")) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $admin->id], ['class' => 'btn btn-primary']) ?>
-                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $admin->id], ['class' => 'btn btn-danger', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $admin->id)]) ?>
+                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $a->id], ['class' => 'btn btn-primary']) ?>
+
+                <?php if($a->id != $admin->id) : ?>
+                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $a->id], ['class' => 'btn btn-danger', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $a->id)]) ?>
+                <?php endif; ?>
             </td>
         </tr>
 

@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    $(".validate").validate();
+
     $('.editor').ckeditor();
 
     $('.datepicker').datepicker({

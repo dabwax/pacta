@@ -1,24 +1,25 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Ações') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Form->postLink(
-                __('Excluir'),
-                ['action' => 'delete', $admin->id],
-                ['confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $admin->id), 'class' => 'btn btn-danger']
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('Listar Administradores'), ['action' => 'index'], ['class' => 'btn btn-default']) ?></li>
-    </ul>
-</div>
-<div class="admins form large-10 medium-9 columns">
-    <?= $this->Form->create($admin) ?>
+<div class="col-lg-12">
+
+<h2 class="titulo-painel"><i class="fa fa-user"></i> Editar Usuário</h2>
+<hr>
+
+    <?= $this->Form->create($admin, ['class' => 'validate']) ?>
     <fieldset>
-        <legend><?= __('Editar Administrador') ?></legend>
         <?php
-            echo $this->Form->input('username', ['label' => 'E-mail']);
-            echo $this->Form->input('password', ['label' => 'Senha', 'value' => '']);
+            echo $this->Form->input('username', ['label' => 'E-mail', 'required' => true, 'minlength' => 10, 'type' => 'email']);
+            echo $this->Form->input('password', ['label' => 'Senha', 'required' => true, 'minlength' => 8, 'maxlength' => 15, 'value' => '']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Salvar')) ?>
+    <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+
+</div>
+
+<div class="col-lg-12 col-excluir-registro">
+<?= $this->Form->postLink(
+                __('Excluir este registro'),
+                ['action' => 'delete', $admin->id],
+                ['confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $admin->id), 'class' => 'btn btn-danger btn-block']
+            )
+        ?>
 </div>

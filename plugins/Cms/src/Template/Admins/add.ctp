@@ -1,16 +1,12 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Admins'), ['action' => 'index']) ?></li>
-    </ul>
-</div>
-<div class="admins form large-10 medium-9 columns">
-    <?= $this->Form->create($admin) ?>
+<div class="col-lg-12">
+
+<h2 class="titulo-painel"><i class="fa fa-user"></i> Adicionar Novo Usuário</h2>
+<hr>
+    <?= $this->Form->create($admin, ['class' => 'validate']) ?>
     <fieldset>
-        <legend><?= __('Add Admin') ?></legend>
         <?php
-            echo $this->Form->input('username');
-            echo $this->Form->input('password');
+            echo $this->Form->input('username', ['label' => 'E-mail', 'required' => true, 'minlength' => 10, 'type' => 'email']);
+            echo $this->Form->input('password', ['label' => 'Senha', 'required' => true, 'minlength' => 8, 'maxlength' => 15]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

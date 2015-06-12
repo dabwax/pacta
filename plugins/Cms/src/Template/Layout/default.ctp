@@ -8,16 +8,18 @@
     </title>
     <?= $this->Html->meta('icon') ?>
 
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
     <?= $this->Html->css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css') ?>
     <?= $this->Html->css('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css') ?>
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('cms.min.css') ?>
 
     <?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js') ?>
     <?= $this->Html->script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js') ?>
     <?= $this->Html->script('//cdn.ckeditor.com/4.4.7/standard/ckeditor.js') ?>
     <?= $this->Html->script('//cdn.ckeditor.com/4.4.7/standard/adapters/jquery.js') ?>
+    <?= $this->Html->script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js') ?>
+    <?= $this->Html->script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/localization/messages_pt_BR.js') ?>
     <?= $this->Html->script('cms.min.js') ?>
 
     <?= $this->fetch('meta') ?>
@@ -25,43 +27,97 @@
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <header>
-        <div class="header-title">
-            <span>BBlender - Pacta</span>
-        </div>
-        <div class="header-help">
 
             <?php if($admin) { ?>
-            <div class="btn-group">
-                <a href="<?php echo $this->Url->build(['controller' => 'admins', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Administradores</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'banners', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Banners</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'plans', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Planos</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'affiliates', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Associados</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'contracts', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Contratos</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'newsletter', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Newsletter</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'opportunities', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Oportunidades</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'pages', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Páginas</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'partners', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Parceiros</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'pins', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Pins</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'posts', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Posts</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'services', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Serviços</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'transfers', 'action' => 'index']); ?>" class="btn btn-warning"><i class="fa fa-sign-out"></i> Transferências</a>
-                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>" class="btn btn-danger"><i class="fa fa-sign-out"></i> Sair do Sistema</a>
-            </div>
+
+            <nav class="navbar navbar-default">
+              <div class="container">
+                  <a class="navbar-brand pull-right" href="<?php echo $this->Url->build('/'); ?>" style="padding: 0px;">
+                      BBLENDER PACTA
+                  </a>
+
+              </div><!-- /.container-fluid -->
+            </nav>
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <h1 class="titulo-painel">Painel de Controle <small></small></h1>
+
+                        <hr>
+
+                    </div> <!-- .col-md-12 -->
+
+                </div> <!-- .row -->
+
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <ul class="lista-sidebar">
+                            <li>
+                                <a href="<?php echo $this->Url->build( ['controller' => 'dashboard', 'action' => 'index'] ); ?>"> <i class="fa fa-home"></i> Home</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?php echo $this->Url->build( ['controller' => 'admins', 'action' => 'index'] ); ?>"> <i class="fa fa-user"></i> Listar Usuários</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?php echo $this->Url->build( ['controller' => 'affiliates', 'action' => 'index'] ); ?>"> <i class="fa fa-user"></i> Listar Associados</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->Url->build( ['controller' => 'affiliates', 'action' => 'approve'] ); ?>"><i class="fa fa-folder"></i> Aprovar Associados</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-folder"></i> Listar Contratos de Adesão</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-pencil"></i> Editar Institucional</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-pencil"></i> Editar Nossos Serviços</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-pencil"></i> Listar Oportunidades</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-pencil"></i> Listar Pins (Onde Estamos)</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-pencil"></i> Listar Planos Farem</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-md-9">
+
+                            <?= $this->Flash->render() ?>
+
+                            <div class="row">
+                                <?= $this->fetch('content') ?>
+                            </div>
+
+                    </div>
+                </div>
+
+            </div> <!-- .container -->
+            <?php } else { ?>
+
+                            <?= $this->Flash->render() ?>
+
+                            <div class="container" style="margin-top: 120px;">
+                                <?= $this->fetch('content') ?>
+                            </div>
             <?php } ?>
-        </div>
-    </header>
-    <div id="container">
-
-        <div id="content">
-            <?= $this->Flash->render() ?>
-
-            <div class="row">
-                <?= $this->fetch('content') ?>
-            </div>
-        </div>
-        <footer>
-        </footer>
-    </div>
 </body>
 </html>
