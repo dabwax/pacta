@@ -52,6 +52,11 @@ class PagesController extends AppController
      */
     public function edit($id = null)
     {
+
+        $where = ['page_id' => $id];
+        $this->set('pageBlocks', $this->Pages->PageBlocks->find()->where($where)->all() );
+        $this->set('_serialize', ['pageBlocks']);
+
         $page = $this->Pages->get($id, [
             'contain' => []
         ]);

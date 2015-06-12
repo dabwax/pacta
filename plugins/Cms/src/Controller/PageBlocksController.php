@@ -26,36 +26,23 @@ class PageBlocksController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Page Block id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $pageBlock = $this->PageBlocks->get($id, [
-            'contain' => ['Pages']
-        ]);
-        $this->set('pageBlock', $pageBlock);
-        $this->set('_serialize', ['pageBlock']);
-    }
-
-    /**
      * Add method
      *
      * @return void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($id)
     {
         $pageBlock = $this->PageBlocks->newEntity();
         if ($this->request->is('post')) {
+
+            $this->request->data['page_id'] = $id;
+
             $pageBlock = $this->PageBlocks->patchEntity($pageBlock, $this->request->data);
             if ($this->PageBlocks->save($pageBlock)) {
-                $this->Flash->success(__('The page block has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('O bloco de conteúdo foi vinculado a página.'));
+                return $this->redirect(['controller' => 'pages', 'action' => 'edit', $id]);
             } else {
-                $this->Flash->error(__('The page block could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível cadastrar o bloco de conteúdo.'));
             }
         }
         $pages = $this->PageBlocks->Pages->find('list', ['limit' => 200]);
@@ -70,7 +57,7 @@ class PageBlocksController extends AppController
      * @return void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
+    public function edit($id = null, $page_id = null)
     {
         $pageBlock = $this->PageBlocks->get($id, [
             'contain' => []
@@ -78,10 +65,10 @@ class PageBlocksController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pageBlock = $this->PageBlocks->patchEntity($pageBlock, $this->request->data);
             if ($this->PageBlocks->save($pageBlock)) {
-                $this->Flash->success(__('The page block has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('O bloco de conteúdo foi editado.'));
+                return $this->redirect(['controller' => 'pages', 'action' => 'edit', $page_id]);
             } else {
-                $this->Flash->error(__('The page block could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível editar o bloco de conteúdo.'));
             }
         }
         $pages = $this->PageBlocks->Pages->find('list', ['limit' => 200]);
@@ -96,15 +83,15 @@ class PageBlocksController extends AppController
      * @return void Redirects to index.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function delete($id = null)
+    public function delete($id = null, $page_id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $pageBlock = $this->PageBlocks->get($id);
         if ($this->PageBlocks->delete($pageBlock)) {
-            $this->Flash->success(__('The page block has been deleted.'));
+            $this->Flash->success(__('O bloco de conteúdo foi excluído.'));
         } else {
-            $this->Flash->error(__('The page block could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Não foi possível excluir o bloco de conteúdo'));
         }
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'pages', 'action' => 'edit', $page_id]);
     }
 }
