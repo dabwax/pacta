@@ -30,16 +30,18 @@ class OpportunityCardsController extends AppController
      *
      * @return void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($opportunity_id = null)
     {
         $opportunityCard = $this->OpportunityCards->newEntity();
         if ($this->request->is('post')) {
+            $this->request->data['opportunity_id'] = $opportunity_id;
+
             $opportunityCard = $this->OpportunityCards->patchEntity($opportunityCard, $this->request->data);
             if ($this->OpportunityCards->save($opportunityCard)) {
-                $this->Flash->success(__('The opportunity card has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('O card foi salvo.'));
+                return $this->redirect(['controller' => 'opportunities', 'action' => 'edit', $opportunity_id]);
             } else {
-                $this->Flash->error(__('The opportunity card could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o card.'));
             }
         }
         $opportunities = $this->OpportunityCards->Opportunities->find('list', ['limit' => 200]);
@@ -54,7 +56,7 @@ class OpportunityCardsController extends AppController
      * @return void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
+    public function edit($id = null, $opportunity_id = null)
     {
         $opportunityCard = $this->OpportunityCards->get($id, [
             'contain' => []
@@ -62,10 +64,10 @@ class OpportunityCardsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $opportunityCard = $this->OpportunityCards->patchEntity($opportunityCard, $this->request->data);
             if ($this->OpportunityCards->save($opportunityCard)) {
-                $this->Flash->success(__('The opportunity card has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('O card foi salvo.'));
+                return $this->redirect(['controller' => 'opportunities', 'action' => 'edit', $opportunity_id]);
             } else {
-                $this->Flash->error(__('The opportunity card could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o card.'));
             }
         }
         $opportunities = $this->OpportunityCards->Opportunities->find('list', ['limit' => 200]);
@@ -80,15 +82,15 @@ class OpportunityCardsController extends AppController
      * @return void Redirects to index.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function delete($id = null)
+    public function delete($id = null, $opportunity_id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $opportunityCard = $this->OpportunityCards->get($id);
         if ($this->OpportunityCards->delete($opportunityCard)) {
-            $this->Flash->success(__('The opportunity card has been deleted.'));
+            $this->Flash->success(__('O card foi excluído.'));
         } else {
-            $this->Flash->error(__('The opportunity card could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Não foi possível excluir o card.'));
         }
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'opportunities', 'action' => 'edit', $opportunity_id]);
     }
 }

@@ -1,28 +1,23 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $opportunityCard->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $opportunityCard->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Opportunity Cards'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Opportunities'), ['controller' => 'Opportunities', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Opportunity'), ['controller' => 'Opportunities', 'action' => 'add']) ?></li>
-    </ul>
-</div>
-<div class="opportunityCards form large-10 medium-9 columns">
-    <?= $this->Form->create($opportunityCard) ?>
+<div class="col-lg-12">
+    <?= $this->Form->create($opportunityCard, ['class' => 'validate']) ?>
+        <h2 class="titulo-painel"><i class="fa fa-user"></i> <?= __('Editar Card') ?></h2>
+        <hr>
     <fieldset>
-        <legend><?= __('Edit Opportunity Card') ?></legend>
         <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('email');
-            echo $this->Form->input('date_of_accession', ['class' => 'datepicker', 'type' => 'text']);
-            echo $this->Form->input('opportunity_id', ['options' => $opportunities, 'empty' => true]);
+            echo $this->Form->input('name', ['label' => 'Nome', 'required' => true, 'minlength' => 5]);
+            echo $this->Form->input('email', ['type' => 'email', 'label' => 'E-mail', 'required' => true, 'minlength' => 5]);
+            echo $this->Form->input('date_of_accession', ['label' => 'Data de Publicação', 'class' => 'datepicker', 'type' => 'text', 'required' => true, 'minlength' => 5]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+</div>
+
+<div class="col-lg-12 col-excluir-registro">
+<?= $this->Form->postLink(
+                __('Excluir este registro'),
+                ['action' => 'delete', $opportunityCard->id],
+                ['class' => 'btn btn-danger btn-block', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $opportunityCard->id, $opportunityCard->opportunity_id)]
+            )
+        ?>
 </div>

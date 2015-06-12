@@ -19,12 +19,20 @@
     <?= $this->Form->end() ?>
 </div>
 
-
 <div class="col-lg-12 col-excluir-registro">
 <?= $this->Form->postLink(
                 __('Excluir este registro'),
                 ['action' => 'delete', $opportunity->id],
                 ['confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $opportunity->id), 'class' => 'btn btn-danger btn-block']
+            )
+        ?>
+</div>
+
+<div class="col-lg-12 col-excluir-registro">
+<?= $this->Html->link(
+                __('Adicionar Novo Card'),
+                ['controller' => 'opportunity_cards', 'action' => 'add', $opportunity->id],
+                ['class' => 'btn btn-primary btn-block']
             )
         ?>
 </div>
@@ -38,8 +46,7 @@
             <th><?= $this->Paginator->sort('name', 'Nome') ?></th>
             <th><?= $this->Paginator->sort('email', 'E-mail') ?></th>
             <th><?= $this->Paginator->sort('date_of_accession', 'Data de Publicação') ?></th>
-            <th><?= $this->Paginator->sort('opportunity_id', 'Oportunidade') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th class="actions"><?= __('Ações') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -49,12 +56,9 @@
             <td><?= h($opportunityCard->name) ?></td>
             <td><?= h($opportunityCard->email) ?></td>
             <td><?= h($opportunityCard->date_of_accession) ?></td>
-            <td>
-                <?= $opportunityCard->has('opportunity') ? $this->Html->link($opportunityCard->opportunity->name, ['controller' => 'Opportunities', 'action' => 'view', $opportunityCard->opportunity->id]) : '' ?>
-            </td>
             <td class="actions">
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $opportunityCard->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $opportunityCard->id], ['confirm' => __('Are you sure you want to delete # {0}?', $opportunityCard->id)]) ?>
+                <?= $this->Html->link(__('Editar'), ['controller' => 'opportunity_cards', 'action' => 'edit', $opportunityCard->id, $opportunityCard->opportunity_id], ['class' => 'btn btn-primary']) ?>
+                <?= $this->Form->postLink(__('Excluir'), ['controller' => 'opportunity_cards', 'action' => 'delete', $opportunityCard->id, $opportunityCard->opportunity_id], ['class' => 'btn btn-danger', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $opportunityCard->id)]) ?>
             </td>
         </tr>
 
