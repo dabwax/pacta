@@ -23,22 +23,6 @@ class OpportunitiesController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Opportunity id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $opportunity = $this->Opportunities->get($id, [
-            'contain' => ['OpportunityCards']
-        ]);
-        $this->set('opportunity', $opportunity);
-        $this->set('_serialize', ['opportunity']);
-    }
-
-    /**
      * Add method
      *
      * @return void Redirects on successful add, renders view otherwise.
@@ -49,10 +33,10 @@ class OpportunitiesController extends AppController
         if ($this->request->is('post')) {
             $opportunity = $this->Opportunities->patchEntity($opportunity, $this->request->data);
             if ($this->Opportunities->save($opportunity)) {
-                $this->Flash->success(__('The opportunity has been saved.'));
+                $this->Flash->success(__('A oportunidade foi salva.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The opportunity could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar a oportunidade.'));
             }
         }
         $this->set(compact('opportunity'));
@@ -74,10 +58,10 @@ class OpportunitiesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $opportunity = $this->Opportunities->patchEntity($opportunity, $this->request->data);
             if ($this->Opportunities->save($opportunity)) {
-                $this->Flash->success(__('The opportunity has been saved.'));
+                $this->Flash->success(__('A oportunidade foi salva.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The opportunity could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar a oportunidade.'));
             }
         }
         $this->set(compact('opportunity'));
@@ -96,9 +80,9 @@ class OpportunitiesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $opportunity = $this->Opportunities->get($id);
         if ($this->Opportunities->delete($opportunity)) {
-            $this->Flash->success(__('The opportunity has been deleted.'));
+                $this->Flash->success(__('A oportunidade foi excluída.'));
         } else {
-            $this->Flash->error(__('The opportunity could not be deleted. Please, try again.'));
+                $this->Flash->error(__('Não foi possível excluir a oportunidade.'));
         }
         return $this->redirect(['action' => 'index']);
     }

@@ -1,25 +1,18 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Opportunities'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Opportunity Cards'), ['controller' => 'OpportunityCards', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Opportunity Card'), ['controller' => 'OpportunityCards', 'action' => 'add']) ?></li>
-    </ul>
-</div>
-<div class="opportunities form large-10 medium-9 columns">
-    <?= $this->Form->create($opportunity) ?>
+<div class="col-lg-12">
+    <?= $this->Form->create($opportunity, ['class' => 'validate']) ?>
+        <h2 class="titulo-painel"><i class="fa fa-user"></i> <?= __('Adicionar Nova Oportunidade') ?></h2>
+        <hr>
     <fieldset>
-        <legend><?= __('Add Opportunity') ?></legend>
         <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('role');
-            echo $this->Form->input('local');
-            echo $this->Form->input('city');
-            echo $this->Form->input('state');
-            echo $this->Form->input('country');
-            echo $this->Form->input('date_of_accession', ['class' => 'datepicker', 'type' => 'text']);
-            echo $this->Form->input('type');
-            echo $this->Form->input('description', ['class' => 'editor']);
+            echo $this->Form->input('name', ['label' => 'Nome', 'required' => true, 'minlength' => 5]);
+            echo $this->Form->input('role', ['label' => 'Cargo', 'required' => true, 'minlength' => 5]);
+            echo $this->Form->input('local', ['label' => 'Local', 'required' => true, 'minlength' => 5]);
+            echo $this->Form->input('city', ['label' => 'Cidade', 'required' => true, 'minlength' => 5]);
+            echo $this->Form->input('state', ['label' => 'UF', 'required' => true, 'minlength' => 2]);
+            echo $this->Form->input('country', ['label' => 'País', 'required' => true, 'minlength' => 5]);
+            echo $this->Form->input('date_of_accession', ['label' => 'Data de Publicação', 'class' => 'datepicker', 'type' => 'text', 'required' => true, 'minlength' => 5]);
+            echo $this->Form->input('type', ['label' => 'Tipo', 'required' => true, 'minlength' => 5]);
+            echo $this->Form->input('description', ['label' => 'Descrição', 'class' => 'editor', 'required' => true, 'minlength' => 5]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

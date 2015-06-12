@@ -79,7 +79,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-user"></i> Listar Oportunidades</a>
+                                <a href="<?php echo $this->Url->build(['controller' => 'opportunities', 'action' => 'index']); ?>"><i class="fa fa-user"></i> Listar Oportunidades</a>
                             </li>
                             <li class="divider"></li>
                             <li>

@@ -1,23 +1,19 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Opportunity'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Opportunity Cards'), ['controller' => 'OpportunityCards', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Opportunity Card'), ['controller' => 'OpportunityCards', 'action' => 'add']) ?></li>
-    </ul>
+<div class="col-lg-12">
+
+<h2 class="titulo-painel"><i class="fa fa-user"></i> Listar Oportunidades</h2>
+<hr>
+
+<div class="form-group">
+    <?= $this->Html->link(__('Adicionar Nova Oportunidade'), ['action' => 'add'], ['class' => 'btn btn-block btn-primary']) ?>
 </div>
-<div class="opportunities index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+    <table class="table">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('name') ?></th>
-            <th><?= $this->Paginator->sort('role') ?></th>
-            <th><?= $this->Paginator->sort('local') ?></th>
-            <th><?= $this->Paginator->sort('city') ?></th>
-            <th><?= $this->Paginator->sort('state') ?></th>
-            <th><?= $this->Paginator->sort('country') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th><?= $this->Paginator->sort('id', '#') ?></th>
+            <th><?= $this->Paginator->sort('name', 'Nome') ?></th>
+            <th><?= $this->Paginator->sort('role', 'Cargo') ?></th>
+            <th><?= $this->Paginator->sort('local', 'Local') ?></th>
+            <th class="actions"><?= __('Ações') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -27,13 +23,10 @@
             <td><?= h($opportunity->name) ?></td>
             <td><?= h($opportunity->role) ?></td>
             <td><?= h($opportunity->local) ?></td>
-            <td><?= h($opportunity->city) ?></td>
-            <td><?= h($opportunity->state) ?></td>
-            <td><?= h($opportunity->country) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $opportunity->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $opportunity->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $opportunity->id], ['confirm' => __('Are you sure you want to delete # {0}?', $opportunity->id)]) ?>
+                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $opportunity->id], ['class' => 'btn btn-primary']) ?>
+                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $opportunity->id], ['class' => 'btn btn-danger', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $opportunity->id)]) ?>
+
             </td>
         </tr>
 
@@ -42,10 +35,9 @@
     </table>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->next(__('próximo') . ' >') ?>
         </ul>
-        <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>
