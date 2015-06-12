@@ -55,6 +55,12 @@ class OpportunitiesController extends AppController
         $opportunity = $this->Opportunities->get($id, [
             'contain' => []
         ]);
+
+        $where = ['opportunity_id' => $id];
+
+        $this->set('opportunityCards', $this->Opportunities->OpportunityCards->find()->where($where)->all() );
+        $this->set('_serialize', ['opportunityCards']);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $opportunity = $this->Opportunities->patchEntity($opportunity, $this->request->data);
             if ($this->Opportunities->save($opportunity)) {

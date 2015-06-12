@@ -83,11 +83,11 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-user"></i> Listar Pins (Onde Estamos)</a>
+                                <a href="<?php echo $this->Url->build(['controller' => 'pins', 'action' => 'index']); ?>"><i class="fa fa-user"></i> Listar Pins (Onde Estamos)</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="<?php echo $this->Url->build(['controller' => 'authentication', 'action' => 'logout']); ?>"><i class="fa fa-user"></i> Listar Planos Farem</a>
+                                <a href="<?php echo $this->Url->build(['controller' => 'plans', 'action' => 'index']); ?>"><i class="fa fa-user"></i> Listar Planos Farem</a>
                             </li>
                         </ul>
 
