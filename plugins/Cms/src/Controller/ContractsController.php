@@ -26,22 +26,6 @@ class ContractsController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Contract id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $contract = $this->Contracts->get($id, [
-            'contain' => ['Plans']
-        ]);
-        $this->set('contract', $contract);
-        $this->set('_serialize', ['contract']);
-    }
-
-    /**
      * Add method
      *
      * @return void Redirects on successful add, renders view otherwise.
@@ -52,10 +36,10 @@ class ContractsController extends AppController
         if ($this->request->is('post')) {
             $contract = $this->Contracts->patchEntity($contract, $this->request->data);
             if ($this->Contracts->save($contract)) {
-                $this->Flash->success(__('The contract has been saved.'));
+                $this->Flash->success(__('O contrato foi cadastrado.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The contract could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível cadastrar o contrato.'));
             }
         }
         $plans = $this->Contracts->Plans->find('list', ['limit' => 200]);
@@ -78,10 +62,10 @@ class ContractsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $contract = $this->Contracts->patchEntity($contract, $this->request->data);
             if ($this->Contracts->save($contract)) {
-                $this->Flash->success(__('The contract has been saved.'));
+                $this->Flash->success(__('O contrato foi editado.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The contract could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível editar o contrato.'));
             }
         }
         $plans = $this->Contracts->Plans->find('list', ['limit' => 200]);
@@ -101,9 +85,9 @@ class ContractsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $contract = $this->Contracts->get($id);
         if ($this->Contracts->delete($contract)) {
-            $this->Flash->success(__('The contract has been deleted.'));
+                $this->Flash->success(__('O contrato foi excluído.'));
         } else {
-            $this->Flash->error(__('The contract could not be deleted. Please, try again.'));
+                $this->Flash->error(__('Não foi possível excluir o contrato.'));
         }
         return $this->redirect(['action' => 'index']);
     }

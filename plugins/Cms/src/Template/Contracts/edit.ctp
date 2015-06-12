@@ -1,37 +1,36 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $contract->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $contract->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Contracts'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Plans'), ['controller' => 'Plans', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Plan'), ['controller' => 'Plans', 'action' => 'add']) ?></li>
-    </ul>
-</div>
-<div class="contracts form large-10 medium-9 columns">
-    <?= $this->Form->create($contract) ?>
+<div class="col-lg-12">
+
+<h2 class="titulo-painel"><i class="fa fa-user"></i> Editar Contrato</h2>
+<hr>
+
+    <?= $this->Form->create($contract, ['class' => 'validate']) ?>
     <fieldset>
-        <legend><?= __('Edit Contract') ?></legend>
         <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('address');
-            echo $this->Form->input('zip_code');
-            echo $this->Form->input('city');
-            echo $this->Form->input('state');
-            echo $this->Form->input('country');
-            echo $this->Form->input('cnpj');
-            echo $this->Form->input('mf');
-            echo $this->Form->input('plan_id', ['options' => $plans, 'empty' => true]);
-            echo $this->Form->input('legal_representant');
-            echo $this->Form->input('rg');
-            echo $this->Form->input('cpf');
-            echo $this->Form->input('nacionality');
+            echo $this->Form->input('name', ['label' => 'Nome', 'required' => true, 'minlength' => 10]);
+            echo $this->Form->input('address', ['label' => 'Endereço', 'required' => true, 'minlength' => 10]);
+            echo $this->Form->input('zip_code', ['label' => 'CEP', 'required' => true, 'minlength' => 8]);
+            echo $this->Form->input('city', ['label' => 'Cidade', 'required' => true, 'minlength' => 4]);
+            echo $this->Form->input('state', ['label' => 'UF', 'required' => true, 'minlength' => 2]);
+            echo $this->Form->input('country', ['label' => 'País', 'required' => true, 'minlength' => 4]);
+            echo $this->Form->input('cnpj', ['label' => 'CNPJ', 'required' => true, 'minlength' => 14]);
+            echo $this->Form->input('mf', ['label' => 'MF', 'required' => true, 'minlength' => 2]);
+            echo $this->Form->input('plan_id', ['options' => $plans, 'empty' => 'Selecionar Plano', 'label' => 'Plano', 'required' => true]);
+            echo "<h3 class='titulo-painel'>Representante Legal</h3><hr />";
+            echo $this->Form->input('legal_representant', ['label' => 'Nome', 'required' => true, 'minlength' => 4]);
+            echo $this->Form->input('rg', ['label' => 'RG', 'required' => true, 'minlength' => 10]);
+            echo $this->Form->input('cpf', ['label' => 'CPF', 'required' => true, 'minlength' => 10]);
+            echo $this->Form->input('nacionality', ['label' => 'Nacionalidade', 'required' => true, 'minlength' => 4]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+</div>
+
+<div class="col-lg-12 col-excluir-registro">
+<?= $this->Form->postLink(
+                __('Excluir este registro'),
+                ['action' => 'delete', $contract->id],
+                ['class' => 'btn btn-danger btn-block', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $contract->id)]
+            )
+        ?>
 </div>
