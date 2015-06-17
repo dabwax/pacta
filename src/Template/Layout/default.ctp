@@ -24,8 +24,10 @@
   </head>
 
 <body>
-    <?= $this->Flash->render() ?>
-    <?= $this->fetch('content') ?>
+    <div class="wrapper">
+        <?= $this->Flash->render() ?>
+        <?= $this->fetch('content') ?>
+    </div>
 
     <div id="rodape" class="row ">
     <div class="col-lg-1 col-md-1 col-sm-1 altura-rodape linha-cinza-rodape sombra-topo box-rodape hidden-xs"></div>

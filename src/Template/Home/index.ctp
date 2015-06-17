@@ -2,13 +2,19 @@
     <div class="row">
         <?php echo $this->element("menu"); ?>
 
+        <?php if(empty($this->request->query['page'])) { ?>
+
         <?php echo $this->element("home_slider"); ?>
+
+        <?php } ?>
     </div> <!-- .row -->
 </div> <!-- .container-fluid -->
 
 <?php echo $this->element("mobile_menu"); ?>
 
 <div class="container-fluid">
+
+    <?php if(empty($this->request->query['page'])) { ?>
 
     <div id="ancora" class="row">
 
@@ -22,6 +28,8 @@
 
     </div> <!-- #ancora -->
 
+        <?php } ?>
+
     <div class="row row-eq-height">
         <div class="col-lg-1 linha-verde-lateral sombra-topo verde-3 hidden-xs margleftneg"></div>
 
@@ -33,23 +41,20 @@
 </div> <!-- .container-fluid -->
 
 
-<div class="modal fade ultimasNoticias" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade ultimasNoticias" id="modalNoticia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="content-modal">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="exampleModalLabel">Titulo noticia</h4>
+            <h4 class="modal-title" id="campo-titulo-noticia">Titulo noticia</h4>
           </div>
           <div class="modal-body">
-            <p>Sub titulo</p>
-            <p>Bacon ipsum dolor amet pancetta shoulder short ribs, chicken picanha andouille jerky
-                hamburger short loin pastrami chuck. Turducken rump shoulder spare ribs, porchetta bacon
-                chicken. Swine pork loin boudin pancetta kielbasa beef sirloin bresaola spare ribs flank
-                doner andouille capicola ball tip. Ground round landjaeger biltong doner fatback rump,
-                t-bone corned beef. </p>
 
-            <p>12 de janeiro de 2016, Rio de Janeiro, Rj</p>
+          <div id="campo-conteudo-noticia"></div>
+
+          <p id="campo-data-noticia"></p>
           </div>
+
           <div class="modal-footer">
             <button type="button" class="btn btn-verde" data-dismiss="modal">FECHAR</button>
           </div>

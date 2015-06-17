@@ -1,5 +1,15 @@
 
 $(document).ready(function(){
+
+    $(".ver-mais-noticias").on("click", function() {
+        var json_data = $(this).data("json");
+
+        $("#campo-titulo-noticia").html(json_data.title);
+        $("#campo-conteudo-noticia").html(json_data.description);
+        $("#campo-data-noticia").html(json_data.published_date);
+
+        $("#modalNoticia").modal("show");
+    });
     //Handles menu drop down
     $('.dropdown-menu').find('form').click(function (e) {//js click botão login
         e.stopPropagation();
