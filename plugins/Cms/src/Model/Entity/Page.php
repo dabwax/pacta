@@ -20,6 +20,7 @@ class Page extends Entity
         'content' => true,
         'slug' => true,
         'page_blocks' => true,
+        'subname' => true,
     ];
 
     protected function _setName($title)

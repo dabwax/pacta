@@ -1,32 +1,30 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $plan->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $plan->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Plans'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Affiliates'), ['controller' => 'Affiliates', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Affiliate'), ['controller' => 'Affiliates', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Contracts'), ['controller' => 'Contracts', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Contract'), ['controller' => 'Contracts', 'action' => 'add']) ?></li>
-    </ul>
-</div>
-<div class="plans form large-10 medium-9 columns">
-    <?= $this->Form->create($plan) ?>
+<div class="col-lg-12">
+
+<h2 class="titulo-painel"><i class="fa fa-user"></i> Editar Plano FAREM</h2>
+<hr>
+
+    <?= $this->Form->create($plan, ['class' => 'validate', 'type' => 'file']) ?>
     <fieldset>
-        <legend><?= __('Edit Plan') ?></legend>
         <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('content',['class' => 'editor']);
-            echo $this->Form->input('price');
-            echo $this->Form->input('destaque_1');
-            echo $this->Form->input('destaque_2');
-            echo $this->Form->input('destaque_3');
+            echo $this->Form->input('name', ['label' => 'Nome']);
+            echo $this->Form->input('content',['label' => 'Conteúdo', 'class' => 'editor']);
+            echo $this->Form->input('price', ['label' => 'Preço']);
+            echo $this->Form->input('attachment', ['label' => 'Anexo', 'type' => 'file']);
+            echo $this->Form->input('destaque_1', ['label' => 'Destaque 1']);
+            echo $this->Form->input('destaque_2', ['label' => 'Destaque 2']);
+            echo $this->Form->input('destaque_3', ['label' => 'Destaque 3']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+
+</div>
+
+<div class="col-lg-12 col-excluir-registro">
+<?= $this->Form->postLink(
+                __('Excluir este registro'),
+                ['action' => 'delete', $plan->id],
+                ['confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $plan->id), 'class' => 'btn btn-danger btn-block']
+            )
+        ?>
 </div>

@@ -1,29 +1,30 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Partner'), ['action' => 'add']) ?></li>
-    </ul>
+<div class="col-lg-12">
+
+<h2 class="titulo-painel"><i class="fa fa-user"></i> Listar Parceiros</h2>
+<hr>
+
+<div class="form-group">
+<?= $this->Html->link(__('Adicionar Novo'), ['action' => 'add'], ['class' => 'btn btn-primary btn-block']) ?>
 </div>
-<div class="partners index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+
+    <table class="table">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('title') ?></th>
-            <th><?= $this->Paginator->sort('attachment') ?></th>
-            <th><?= $this->Paginator->sort('url') ?></th>
-            <th><?= $this->Paginator->sort('created') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th><?= $this->Paginator->sort('id', '#') ?></th>
+            <th><?= $this->Paginator->sort('title', 'Nome') ?></th>
+            <th><?= $this->Paginator->sort('attachment', 'Imagem') ?></th>
+            <th><?= $this->Paginator->sort('created', 'Data de Criação') ?></th>
+            <th class="actions"><?= __('Ações') ?></th>
         </tr>
     </thead>
+
     <tbody>
     <?php foreach ($partners as $partner): ?>
         <tr>
             <td><?= $this->Number->format($partner->id) ?></td>
             <td><?= h($partner->title) ?></td>
-            <td><?= h($partner->attachment) ?></td>
-            <td><?= h($partner->url) ?></td>
-            <td><?= h($partner->created) ?></td>
+            <td><?= $this->Html->upload($partner->attachment, ['style' => 'height: 100px;']) ?></td>
+            <td><?= h($partner->created->format("d/m/Y H:i:s")) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $partner->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $partner->id]) ?>
@@ -36,10 +37,9 @@
     </table>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->next(__('próximo') . ' >') ?>
         </ul>
-        <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>

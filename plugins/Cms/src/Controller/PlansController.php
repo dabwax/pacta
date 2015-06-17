@@ -11,6 +11,12 @@ use Cms\Controller\AppController;
 class PlansController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Upload');
+    }
+
     /**
      * Index method
      *
@@ -31,6 +37,7 @@ class PlansController extends AppController
     {
         $plan = $this->Plans->newEntity();
         if ($this->request->is('post')) {
+            $this->request->data['attachment'] = $this->Upload->uploadIt("attachment");
             $plan = $this->Plans->patchEntity($plan, $this->request->data);
             if ($this->Plans->save($plan)) {
                 $this->Flash->success(__('The plan has been saved.'));
@@ -56,6 +63,7 @@ class PlansController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+            $this->request->data['attachment'] = $this->Upload->uploadIt("attachment");
             $plan = $this->Plans->patchEntity($plan, $this->request->data);
             if ($this->Plans->save($plan)) {
                 $this->Flash->success(__('The plan has been saved.'));

@@ -2,6 +2,7 @@
 namespace App\Controller\Component;
 
 use Cake\Controller\Component;
+use Cake\Utility\Inflector;
 
 class UploadComponent extends Component
 {
@@ -14,7 +15,7 @@ class UploadComponent extends Component
     public function uploadIt($field)
     {
         $dados = $this->request->data[$field];
-        $filename = time() . '-' . $dados['name'];
+        $filename = time() . '-' . strtolower(Inflector::slug($dados['name']));
         $uploadPath = WWW_ROOT . 'uploads' . DS . $filename;
 
         if(!empty($dados)) {

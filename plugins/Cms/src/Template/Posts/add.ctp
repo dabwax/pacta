@@ -1,20 +1,18 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Posts'), ['action' => 'index']) ?></li>
-    </ul>
-</div>
-<div class="posts form large-10 medium-9 columns">
-    <?= $this->Form->create($post) ?>
+<div class="col-lg-12">
+
+<h2 class="titulo-painel"><i class="fa fa-user"></i> Adicionar Notícia</h2>
+<hr>
+
+    <?= $this->Form->create($post, ['class' => 'validate', 'type' => 'file']) ?>
     <fieldset>
-        <legend><?= __('Add Post') ?></legend>
         <?php
-            echo $this->Form->input('title');
-            echo $this->Form->input('description', ['class' => 'editor']);
-            echo $this->Form->input('excerpt', ['class' => 'editor']);
-            echo $this->Form->input('published_date', ['class' => 'datepicker', 'type' => 'text']);
+            echo $this->Form->input('title', ['label' => 'Título']);
+            echo $this->Form->input('description', ['class' => 'editor', 'label' => 'Conteúdo']);
+            echo $this->Form->input('excerpt', ['class' => 'editor', 'label' => 'Resumo']);
+            echo $this->Form->input('published_date', ['class' => 'datepicker', 'type' => 'text', 'label' => 'Data de Publicação', 'value' => (new DateTime('now'))->format("d/m/Y") ]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+
 </div>

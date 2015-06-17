@@ -1,25 +1,20 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Plan'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Affiliates'), ['controller' => 'Affiliates', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Affiliate'), ['controller' => 'Affiliates', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Contracts'), ['controller' => 'Contracts', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Contract'), ['controller' => 'Contracts', 'action' => 'add']) ?></li>
-    </ul>
+<div class="col-lg-12">
+
+<h2 class="titulo-painel"><i class="fa fa-user"></i> Listar Planos FAREM</h2>
+<hr>
+
+<div class="form-group">
+<?= $this->Html->link(__('Adicionar Novo'), ['action' => 'add'], ['class' => 'btn btn-primary btn-block']) ?>
 </div>
-<div class="plans index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+
+    <table class="table">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('name') ?></th>
-            <th><?= $this->Paginator->sort('price') ?></th>
-            <th><?= $this->Paginator->sort('destaque_1') ?></th>
-            <th><?= $this->Paginator->sort('destaque_2') ?></th>
-            <th><?= $this->Paginator->sort('destaque_3') ?></th>
-            <th><?= $this->Paginator->sort('created') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th><?= $this->Paginator->sort('id', '#') ?></th>
+            <th><?= $this->Paginator->sort('name', 'Nome') ?></th>
+            <th><?= $this->Paginator->sort('price', 'Preço') ?></th>
+            <th><?= $this->Paginator->sort('created', 'Data de Criação') ?></th>
+            <th class="actions"><?= __('Ações') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -28,10 +23,7 @@
             <td><?= $this->Number->format($plan->id) ?></td>
             <td><?= h($plan->name) ?></td>
             <td><?= h($plan->price) ?></td>
-            <td><?= h($plan->destaque_1) ?></td>
-            <td><?= h($plan->destaque_2) ?></td>
-            <td><?= h($plan->destaque_3) ?></td>
-            <td><?= h($plan->created) ?></td>
+            <td><?= h($plan->created->format("d/m/Y H:i:s")) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('Editar'), ['action' => 'edit', $plan->id]) ?>
                 <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $plan->id], ['confirm' => __('Are you sure you want to delete # {0}?', $plan->id)]) ?>
@@ -43,10 +35,9 @@
     </table>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->next(__('próximo') . ' >') ?>
         </ul>
-        <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>

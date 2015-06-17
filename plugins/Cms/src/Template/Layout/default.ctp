@@ -67,6 +67,18 @@
                             </li>
                             <li class="divider"></li>
                             <li>
+                                <a href="<?php echo $this->Url->build( ['controller' => 'banners', 'action' => 'index'] ); ?>"> <i class="fa fa-user"></i> Listar Banners</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?php echo $this->Url->build( ['controller' => 'posts', 'action' => 'index'] ); ?>"> <i class="fa fa-user"></i> Listar Notícias</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?php echo $this->Url->build( ['controller' => 'partners', 'action' => 'index'] ); ?>"> <i class="fa fa-user"></i> Listar Parceiros</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
                                 <a href="<?php echo $this->Url->build( ['controller' => 'affiliates', 'action' => 'index'] ); ?>"> <i class="fa fa-user"></i> Listar Associados</a>
                             </li>
                             <li class="divider"></li>

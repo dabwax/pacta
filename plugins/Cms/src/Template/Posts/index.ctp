@@ -1,19 +1,19 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Post'), ['action' => 'add']) ?></li>
-    </ul>
+<div class="col-lg-12">
+
+<h2 class="titulo-painel"><i class="fa fa-user"></i> Listar Notícias</h2>
+<hr>
+
+<div class="form-group">
+<?= $this->Html->link(__('Adicionar Novo'), ['action' => 'add'], ['class' => 'btn btn-primary btn-block']) ?>
 </div>
-<div class="posts index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+
+    <table class="table">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('title') ?></th>
-            <th><?= $this->Paginator->sort('slug') ?></th>
-            <th><?= $this->Paginator->sort('published_date') ?></th>
-            <th><?= $this->Paginator->sort('created') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th><?= $this->Paginator->sort('id', '#') ?></th>
+            <th><?= $this->Paginator->sort('title', 'Título') ?></th>
+            <th><?= $this->Paginator->sort('published_date', 'Data de Publicação') ?></th>
+            <th class="actions"><?= __('Ações') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -21,13 +21,10 @@
         <tr>
             <td><?= $this->Number->format($post->id) ?></td>
             <td><?= h($post->title) ?></td>
-            <td><?= h($post->slug) ?></td>
             <td><?= h($post->published_date) ?></td>
-            <td><?= h($post->created) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $post->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $post->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $post->id], ['confirm' => __('Are you sure you want to delete # {0}?', $post->id)]) ?>
+                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $post->id]) ?>
+                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $post->id], ['confirm' => __('Are you sure you want to delete # {0}?', $post->id)]) ?>
             </td>
         </tr>
 
@@ -36,10 +33,9 @@
     </table>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->next(__('próximo') . ' >') ?>
         </ul>
-        <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>

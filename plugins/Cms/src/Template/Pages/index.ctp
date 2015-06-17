@@ -9,6 +9,7 @@
         <tr>
             <th><?= $this->Paginator->sort('id', '#') ?></th>
             <th><?= $this->Paginator->sort('name', 'Nome') ?></th>
+            <th><?= $this->Paginator->sort('subname', 'Categoria') ?></th>
             <th><?= $this->Paginator->sort('created', 'Data de Criação') ?></th>
             <th class="actions"><?= __('Ações') ?></th>
         </tr>
@@ -18,6 +19,7 @@
         <tr>
             <td><?= $this->Number->format($page->id) ?></td>
             <td><?= h($page->name) ?></td>
+            <td><?= h($page->subname) ?></td>
             <td><?= h($page->created->format("d/m/Y")) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('Editar'), ['action' => 'edit', $page->id], ['class' => 'btn btn-primary']) ?>

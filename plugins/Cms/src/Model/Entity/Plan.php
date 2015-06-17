@@ -23,5 +23,6 @@ class Plan extends Entity
         'destaque_3' => true,
         'affiliates' => true,
         'contracts' => true,
+        'attachment' => true,
     ];
 }
