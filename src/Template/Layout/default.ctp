@@ -27,6 +27,7 @@
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/localization/messages_pt_BR.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
 
      <script>
       $(function() {
@@ -51,6 +52,7 @@
     <?= $this->Html->script('/vendor/noty/js/noty/packaged/jquery.noty.packaged.min.js') ?>
     <?= $this->Html->script('/vendor/simplepagination/jquery.simplePagination.js') ?>
     <?= $this->Html->script('jquery.timeago.js') ?>
+    <?= $this->Html->script('/vendor/gmap3/dist/gmap3.min.js') ?>
     <?= $this->Html->script('main.js') ?>
   </head>
 

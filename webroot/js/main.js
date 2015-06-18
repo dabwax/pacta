@@ -1,6 +1,72 @@
 
 $(document).ready(function(){
 
+    var styles = [
+  {
+    "featureType": "water",
+    "stylers": [
+      { "color": "#ECF0FB" }
+    ]
+  },
+  {
+    "featureType": "administrative.country",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "stylers": [
+      { "color": "#C8D2DB" }
+    ]
+  }
+];
+
+    $('#mapa').gmap3({
+        map:{
+            options:{
+                zoom: 2,
+                styles: styles,
+                scrollwheel: false,
+                navigationControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                draggable: false
+            }
+        },
+        marker: {
+            values: [
+              {latLng:[48.8620722, 2.352047], data:"Paris !", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}},
+              {address:"86000 Poitiers, France", data:"Poitiers : great city !", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}},
+              {address:"66000 Perpignan, France", data:"Perpignan ! GO USAP !", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}}
+            ],
+            events:{
+              mouseover: function(marker, event, context){
+                var map = $(this).gmap3("get"),
+                  infowindow = $(this).gmap3({get:{name:"infowindow"}});
+                if (infowindow){
+                  infowindow.open(map, marker);
+                  infowindow.setContent(context.data);
+                } else {
+                  $(this).gmap3({
+                    infowindow:{
+                      anchor:marker,
+                      options:{content: context.data}
+                    }
+                  });
+                }
+              },
+              mouseout: function(){
+                var infowindow = $(this).gmap3({get:{name:"infowindow"}});
+                if (infowindow){
+                  infowindow.close();
+                }
+              }
+            }
+        }
+    });
+
     $(".ver-vagas-disponiveis").click(function() {
         var json = $(this).data("json");
 
