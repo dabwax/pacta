@@ -1,60 +1,5 @@
 
 $(document).ready(function(){
-
-
-$("div.bhoechie-tab-menu>div.list-group>a").click(function(e) { //abas de
-        e.preventDefault();
-        $(this).siblings('a.active').removeClass("active");
-        $(this).addClass("active");
-        var index = $(this).index();
-        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
-        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
-    });
-
-    function validarEmail(element) {
-        var email = $(element).val();
-        var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-        var url = $(element).data("url");
-
-        if(filtro.test(email)) {
-
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: {email: email},
-                success: function(data) {
-                    data = jQuery.parseJSON(data);
-
-                    if(data.result == "success") {
-                        $(".alerta-newsletter").fadeOut(500);
-                        $(".btn-news").prop("disabled", false);
-                    } else {
-                        $(".alerta-newsletter").html("Este e-mail já encontra-se cadastrado.").fadeIn(500);
-                        $(".btn-news").prop("disabled", true);
-                    }
-                }
-            });
-        } else {
-            $(".alerta-newsletter").html("Este e-mail é inválido.").fadeIn(500);
-            $(".btn-news").prop("disabled", true);
-        }
-    }
-    $(".input-news").keyup(function() {
-        validarEmail($(this));
-    });
-    $(".input-news").blur(function() {
-        validarEmail($(this));
-    });
-
-    $(".ver-mais-noticias").on("click", function() {
-        var json_data = $(this).data("json");
-
-        $("#campo-titulo-noticia").html(json_data.title);
-        $("#campo-conteudo-noticia").html(json_data.description);
-        $("#campo-data-noticia").html(json_data.published_date);
-
-        $("#modalNoticia").modal("show");
-    });
     //Handles menu drop down
     $('.dropdown-menu').find('form').click(function (e) {//js click botão login
         e.stopPropagation();
@@ -69,7 +14,7 @@ $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) { //abas de
       //interval: 1800
     })
 
-   $(".scroll").click(function(event){//js para ancora animada
+   $(".scroll").click(function(event){//js para ancora animada        
         event.preventDefault();
         $('html,body').animate({scrollTop:$(this.hash).offset().top}, 800);
    });
@@ -77,9 +22,9 @@ $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) { //abas de
    $('.btn-file').click(function(){//js para funcionar o botao de upload de corriculo
         $('input[name="image"]').click();
     });
+   
 
-
-
+    
     /*$('.telefone').mask('(00)0000-0000');
     $('.cnpj').mask('00.000.000/0000-00');
     $('.cpf').mask('000.000.000-00', {reverse: true});
@@ -95,7 +40,7 @@ $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) { //abas de
 */
 $( "#abriTexto" ).click(function() {
   $( "#txtOculto" ).fadeToggle( "slow", "linear" );
-});
+});    
 
 
 
@@ -110,6 +55,17 @@ $(function () {
 //$('.item-slider').height($(document).height());
 $('.item-slider').height($(window).height());
 $('#ged').height($(window).height());
+
+
+
+$("div.bhoechie-tab-menu>div.list-group>a").click(function(e) { //abas de 
+        e.preventDefault();
+        $(this).siblings('a.active').removeClass("active");
+        $(this).addClass("active");
+        var index = $(this).index();
+        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+    });
 
 /*function equal_cols(el)
 {
@@ -134,31 +90,31 @@ jQuery(function($) {
         $('.height-servicos').responsiveEqualHeightGrid();
         $('.aba-insti').responsiveEqualHeightGrid();
         $('.institucional').responsiveEqualHeightGrid();
-         $('.auto-height').responsiveEqualHeightGrid();
+         $('.auto-height').responsiveEqualHeightGrid(); 	
 	});
 
 jQuery(function($) {
-
+          
     });
 
 jQuery(function($) {
-
+        
     });
 jQuery(function($) {
-
+         
     });
 
 jQuery(function($) {
-
+          
     });
 jQuery(function($) {
-
+         
     });
 
-$(document).ready(function(){   RadioImg();     });
+$(document).ready(function(){   RadioImg();     });    
 
-function RadioImg(){
-$("input[type=radio]").click(function(){
+function RadioImg(){    
+$("input[type=radio]").click(function(){           
 var rel = $(this).attr('data-radio');
   switch(rel){
 
@@ -167,19 +123,19 @@ var rel = $(this).attr('data-radio');
     $("#fare").hide();
     $("#todos").hide();
     break;
-
+        
     case 'fare':
     $("#fare").show();
     $("#pacta").hide();
-    $("#todos").hide();
-
+    $("#todos").hide();      
+    
     break;
-
+       
     case 'todos':
     $("#todos").show();
     $("#pacta").hide();
     $("#fare").hide()
-    break;
+    break;  
         }
     })
 }
