@@ -26,6 +26,7 @@ class OpportunitiesTable extends Table
         $this->table('opportunities');
         $this->displayField('name');
         $this->primaryKey('id');
+        $this->addBehavior('Timestamp');
         $this->hasMany('OpportunityCards', [
             'foreignKey' => 'opportunity_id',
             'className' => 'Cms.OpportunityCards'

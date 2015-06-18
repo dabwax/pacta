@@ -25,9 +25,13 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/localization/messages_pt_BR.js"></script>
 
      <script>
       $(function() {
+
+        $(".validate").validate();
         $( "#sortable" ).sortable({
           revert: true
         });
@@ -46,6 +50,7 @@
     <?= $this->Html->script('jquery.mask.js') ?>
     <?= $this->Html->script('/vendor/noty/js/noty/packaged/jquery.noty.packaged.min.js') ?>
     <?= $this->Html->script('/vendor/simplepagination/jquery.simplePagination.js') ?>
+    <?= $this->Html->script('jquery.timeago.js') ?>
     <?= $this->Html->script('main.js') ?>
   </head>
 

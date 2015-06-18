@@ -1,28 +1,28 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $service->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $service->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Services'), ['action' => 'index']) ?></li>
-    </ul>
-</div>
-<div class="services form large-10 medium-9 columns">
-    <?= $this->Form->create($service) ?>
+<div class="col-lg-12">
+
+<h2 class="titulo-painel"><i class="fa fa-user"></i> Editar Serviço</h2>
+<hr>
+    <?= $this->Form->create($service, ['class' => 'validate']) ?>
     <fieldset>
-        <legend><?= __('Edit Service') ?></legend>
         <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('content', ['class' => 'editor']);
-            echo $this->Form->input('tab_1_title');
-            echo $this->Form->input('tab_1_content', ['class' => 'editor']);
-            echo $this->Form->input('tab_2_title');
-            echo $this->Form->input('tab_2_content', ['class' => 'editor']);
+            echo $this->Form->input('name', ['label' => 'Nome']);
+            echo $this->Form->input('content', ['class' => 'editor', 'label' => 'Conteúdo']);
+            echo $this->Form->input('tab_1_title', ['label' => 'Título da 1ª Aba']);
+            echo $this->Form->input('tab_1_content', ['class' => 'editor', 'label' => 'Conteúdo da 1ª Aba']);
+            echo $this->Form->input('tab_2_title', ['label' => 'Título da 2ª Aba']);
+            echo $this->Form->input('tab_2_content', ['class' => 'editor', 'label' => 'Conteúdo da 2ª Aba']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+</div>
+
+
+<div class="col-lg-12 col-excluir-registro">
+<?= $this->Form->postLink(
+                __('Excluir este registro'),
+                ['action' => 'delete', $service->id],
+                ['confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $service->id), 'class' => 'btn btn-danger btn-block']
+            )
+        ?>
 </div>

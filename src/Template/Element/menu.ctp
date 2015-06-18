@@ -5,10 +5,10 @@
                   <ul class="nav">
                       <li style="margin:40px 0"><a href="#"><img class="img-center" src="img/detalhe-menu-topo.png" height="21" width="20"></a></li>
                       <li><a href="<?php echo $this->Url->build( ['controller' => 'institucional', 'action' => 'index'] ); ?>"  rel="tooltip" data-placement="right" title="INSTITUCIONAL"><img class="img-center" src="img/icon-home.png" height="26" width="26"></a></li>
-                      <li><a href="nossos-servicos.php"  rel="tooltip" data-placement="right" title="NOSSOS SERVIÇOS"><img class="img-center" src="img/icon-nossoservico.png" height="26" width="26"></a></li>
-                      <li><a href="oportunidades.php"  rel="tooltip" data-placement="right" title="OPORTUNIDADES"><img class="img-center" src="img/icon-oportunidades.png" height="26" width="26"></a></li>
-                      <li><a href="onde-estamos.php"  rel="tooltip" data-placement="right" title="ONDE ESTAMOS"><img class="img-center"src="img/icon-ondeestamos.png" height="26" width="26"></a></li>
-                      <li><a href="contato.php"  rel="tooltip" data-placement="right" title="CONTATO"><img class="img-center" src="img/icon-contato.png" height="26" width="26"></a></li>
+                      <li><a href="<?php echo $this->Url->build( ['controller' => 'servicos', 'action' => 'index'] ); ?>"  rel="tooltip" data-placement="right" title="NOSSOS SERVIÇOS"><img class="img-center" src="img/icon-nossoservico.png" height="26" width="26"></a></li>
+                      <li><a href="<?php echo $this->Url->build( ['controller' => 'oportunidades', 'action' => 'index'] ); ?>"  rel="tooltip" data-placement="right" title="OPORTUNIDADES"><img class="img-center" src="img/icon-oportunidades.png" height="26" width="26"></a></li>
+                      <li><a href="<?php echo $this->Url->build( ['controller' => 'localizacao', 'action' => 'index'] ); ?>"  rel="tooltip" data-placement="right" title="ONDE ESTAMOS"><img class="img-center"src="img/icon-ondeestamos.png" height="26" width="26"></a></li>
+                      <li><a href="<?php echo $this->Url->build( ['controller' => 'contato', 'action' => 'index'] ); ?>"  rel="tooltip" data-placement="right" title="CONTATO"><img class="img-center" src="img/icon-contato.png" height="26" width="26"></a></li>
                   </ul>
               </nav>
 

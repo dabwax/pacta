@@ -60,34 +60,4 @@
 
         <?php } ?>
 
-    <div class="row row-eq-height">
-        <div class="col-lg-1 linha-verde-lateral sombra-topo verde-3 hidden-xs margleftneg"></div>
-
-        <?php echo $this->element("home_box_noticias"); ?>
-        <?php echo $this->element("home_box_newsletter"); ?>
-
-    </div> <!-- .row -->
-
 </div> <!-- .container-fluid -->
-
-
-<div class="modal fade ultimasNoticias" id="modalNoticia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="content-modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="campo-titulo-noticia">Titulo noticia</h4>
-          </div>
-          <div class="modal-body">
-
-          <div id="campo-conteudo-noticia"></div>
-
-          <p id="campo-data-noticia"></p>
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-verde" data-dismiss="modal">FECHAR</button>
-          </div>
-        </div>
-    </div>
-</div>

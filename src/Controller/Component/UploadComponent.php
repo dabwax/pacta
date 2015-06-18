@@ -16,6 +16,9 @@ class UploadComponent extends Component
     {
         $dados = $this->request->data[$field];
         $filename = time() . '-' . strtolower(Inflector::slug($dados['name']));
+        $ext = pathinfo($dados['name'], PATHINFO_EXTENSION);
+        $filename = $filename . "." . $ext;
+
         $uploadPath = WWW_ROOT . 'uploads' . DS . $filename;
 
         if(!empty($dados)) {

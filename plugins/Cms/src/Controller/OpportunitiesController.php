@@ -56,9 +56,7 @@ class OpportunitiesController extends AppController
             'contain' => []
         ]);
 
-        $where = ['opportunity_id' => $id];
 
-        $this->set('opportunityCards', $this->Opportunities->OpportunityCards->find()->where($where)->all() );
         $this->set('_serialize', ['opportunityCards']);
 
         if ($this->request->is(['patch', 'post', 'put'])) {

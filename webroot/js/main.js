@@ -1,6 +1,36 @@
 
 $(document).ready(function(){
 
+    $(".ver-vagas-disponiveis").click(function() {
+        var json = $(this).data("json");
+
+        $("#vaga-nome").html(json.name);
+        $("#vaga-descricao").html(json.description);
+        $("#vaga-localizacao").html(json.local + " " + json.city + " " + json.state + " " + json.country);
+        $("#myModal").modal("show");
+    });
+
+    // Brazilian Portuguese
+jQuery.timeago.settings.strings = {
+   prefixAgo: "há",
+   prefixFromNow: "em",
+   suffixAgo: null,
+   suffixFromNow: null,
+   seconds: "alguns segundos",
+   minute: "um minuto",
+   minutes: "%d minutos",
+   hour: "uma hora",
+   hours: "%d horas",
+   day: "um dia",
+   days: "%d dias",
+   month: "um mês",
+   months: "%d meses",
+   year: "um ano",
+   years: "%d anos"
+};
+
+    jQuery("abbr.timeago").timeago();
+
 
 $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) { //abas de
         e.preventDefault();
@@ -75,7 +105,7 @@ $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) { //abas de
    });
 
    $('.btn-file').click(function(){//js para funcionar o botao de upload de corriculo
-        $('input[name="image"]').click();
+        $('input[name="attachment"]').click();
     });
 
 

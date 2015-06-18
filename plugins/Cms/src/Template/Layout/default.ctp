@@ -79,6 +79,10 @@
                             </li>
                             <li class="divider"></li>
                             <li>
+                                <a href="<?php echo $this->Url->build( ['controller' => 'services', 'action' => 'index'] ); ?>"> <i class="fa fa-user"></i> Listar Serviços</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
                                 <a href="<?php echo $this->Url->build( ['controller' => 'affiliates', 'action' => 'index'] ); ?>"> <i class="fa fa-user"></i> Listar Associados</a>
                             </li>
                             <li class="divider"></li>
