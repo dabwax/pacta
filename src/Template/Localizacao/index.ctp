@@ -1,3 +1,5 @@
+<?php
+        $this->assign("title", "Localização"); ?>
 <div class="container-fluid">
     <div class="row">
         <?php echo $this->element("menu"); ?>
