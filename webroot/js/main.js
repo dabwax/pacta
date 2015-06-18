@@ -1,6 +1,41 @@
 
 $(document).ready(function(){
 
+    function validarEmail(element) {
+        var email = $(element).val();
+        var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        var url = $(element).data("url");
+
+        if(filtro.test(email)) {
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {email: email},
+                success: function(data) {
+                    data = jQuery.parseJSON(data);
+
+                    if(data.result == "success") {
+                        $(".alerta-newsletter").fadeOut(500);
+                        $(".btn-news").prop("disabled", false);
+                    } else {
+                        $(".alerta-newsletter").html("Este e-mail já encontra-se cadastrado.").fadeIn(500);
+                        $(".btn-news").prop("disabled", true);
+                    }
+                }
+            });
+        } else {
+            $(".alerta-newsletter").html("Este e-mail é inválido.").fadeIn(500);
+            $(".btn-news").prop("disabled", true);
+        }
+    }
+    $(".input-news").keyup(function() {
+        validarEmail($(this));
+    });
+    $(".input-news").blur(function() {
+        validarEmail($(this));
+    });
+
     $(".ver-mais-noticias").on("click", function() {
         var json_data = $(this).data("json");
 

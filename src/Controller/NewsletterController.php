@@ -12,6 +12,23 @@ class NewsletterController extends BaseController {
         parent::initialize();
     }
 
+    public function ajax_email_existe() {
+        $this->layout = "ajax";
+        $this->autoRender = false;
+
+        $email = $_POST["email"];
+
+        $tableNewslettter = TableRegistry::get("Newsletter");
+
+        $find = $tableNewslettter->find()->where(['email' => $email])->first();
+
+        if($find) {
+            echo json_encode(array('result' => 'false'));
+        } else {
+            echo json_encode(array('result' => 'success'));
+        }
+    }
+
 /**
  *  Action utilizada na home para fazer a inscrição na newsletter.
  *

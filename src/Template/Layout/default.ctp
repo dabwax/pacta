@@ -21,6 +21,32 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+     <script>
+      $(function() {
+        $( "#sortable" ).sortable({
+          revert: true
+        });
+        $( "#draggable" ).draggable({
+          connectToSortable: "#sortable",
+          helper: "clone",
+          revert: "invalid"
+        });
+        $( "ul, li" ).disableSelection();
+      });
+    </script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <?= $this->Html->script('bootstrap.min.js') ?>
+    <?= $this->Html->script('grids.min.js') ?>
+    <?= $this->Html->script('jquery.mask.js') ?>
+    <?= $this->Html->script('/vendor/noty/js/noty/packaged/jquery.noty.packaged.min.js') ?>
+    <?= $this->Html->script('/vendor/simplepagination/jquery.simplePagination.js') ?>
+    <?= $this->Html->script('main.js') ?>
   </head>
 
 <body>
@@ -68,29 +94,5 @@
     </div>
 </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
-     <script>
-      $(function() {
-        $( "#sortable" ).sortable({
-          revert: true
-        });
-        $( "#draggable" ).draggable({
-          connectToSortable: "#sortable",
-          helper: "clone",
-          revert: "invalid"
-        });
-        $( "ul, li" ).disableSelection();
-      });
-    </script>
-
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <?= $this->Html->script('bootstrap.min.js') ?>
-    <?= $this->Html->script('grids.min.js') ?>
-    <?= $this->Html->script('jquery.mask.js') ?>
-    <?= $this->Html->script('/vendor/simplepagination/jquery.simplePagination.js') ?>
-    <?= $this->Html->script('main.js') ?>
 </body>
 </html>

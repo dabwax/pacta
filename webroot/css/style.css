@@ -755,6 +755,17 @@ margin-right: 0;
     padding: 12px 16px;
 }
 
+.btn-news:disabled {
+    -webkit-box-shadow: 0 2px 0 #00323B;
+    -moz-box-shadow: 0 2px 0 #00323B;
+    box-shadow: 0 2px 0 #00323B;
+    background-color:#0A5A63;
+    color: #BBEB3F;
+    border:none;
+    padding: 12px 16px;
+    opacity: 0.5;
+}
+
 .input-news{
   height: 45px;
   margin-top: 4px;
@@ -1802,4 +1813,10 @@ left: 0;
 }
 .col-slider {
   float: right !important;
+}
+.alerta-newsletter {
+  color: red;
+  display: inline-block;
+  width: 100%;
+  margin-top: 6px;
 }

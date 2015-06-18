@@ -6,11 +6,15 @@
     <?php echo $this->Form->create($newsletterEntity, ['class' => 'validate', 'url' => ['controller' => 'newsletter', 'action' => 'add'] ]); ?>
 
         <div class="input-group">
-            <?php echo $this->Form->input("email", ['class' => 'form-control input-news', 'div' => false, 'label' => false]); ?>
+            <?php echo $this->Form->input("email", ['class' => 'form-control input-news', 'div' => false, 'label' => false, 'data-url' => $this->Url->build(['controller' => 'newsletter', 'action' => 'ajax_email_existe']) ]); ?>
             <span class="input-group-btn">
-                <button type="submit" class="btn btn-default btn-news">ASSINATURA DE NEWSLETTER</button>
+                <button type="submit" class="btn btn-default btn-news" disabled="disabled">ASSINATURA DE NEWSLETTER</button>
             </span>
+
         </div>
+            <div class="clearfix"></div>
+
+            <p class="alerta-newsletter"></p>
         <br>
 
         <?php echo $this->Form->end(); ?>
