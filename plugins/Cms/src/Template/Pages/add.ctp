@@ -5,6 +5,7 @@
         <hr>
         <?php
             echo $this->Form->input('name', ['label' => 'Nome', 'required' => true]);
+            echo $this->Form->input('subname', ['label' => 'Categoria', 'required' => true]);
             echo $this->Form->input('content', ['class' => 'editor', 'label' => 'Conteúdo']);
         ?>
     </fieldset>

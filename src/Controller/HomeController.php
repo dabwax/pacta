@@ -34,6 +34,7 @@ class HomeController extends BaseController
         $tablePartners = TableRegistry::get('Partners');
         $tablePlans = TableRegistry::get('Plans');
         $tablePosts = TableRegistry::get('Posts');
+        $tableNewsletter = TableRegistry::get('Newsletter');
 
         // Busca os banners
         $banners = $tableBanners->find()->order(['created' => 'DESC'])->all();
@@ -51,6 +52,10 @@ class HomeController extends BaseController
         $noticias = $tablePosts->find()->order(['published_date' => 'DESC']);
         $noticias = $this->Paginate($noticias);
 
-        $this->set(compact("noticias", "banners", "servico", "parceiros", "planos"));
+        // Busca a página de newsletter
+        $newsletter = $tablePages->find()->where(['subname' => 'Newsletter'])->first();
+        $newsletterEntity = $tableNewsletter->newEntity();
+
+        $this->set(compact("newsletter", "newsletterEntity", "noticias", "banners", "servico", "parceiros", "planos"));
     }
 }
