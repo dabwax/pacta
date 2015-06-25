@@ -8,7 +8,7 @@
         <div class="input-group">
             <?php echo $this->Form->input("email", ['class' => 'form-control input-news', 'div' => false, 'label' => false, 'data-url' => $this->Url->build(['controller' => 'newsletter', 'action' => 'ajax_email_existe']) ]); ?>
             <span class="input-group-btn">
-                <button type="submit" class="btn btn-default btn-news" disabled="disabled">ASSINATURA DE NEWSLETTER</button>
+                <button type="submit" class="btn btn-default btn-news" disabled="disabled"><?php echo __('ASSINATURA DE NEWSLETTER'); ?></button>
             </span>
 
         </div>
@@ -19,6 +19,6 @@
 
         <?php echo $this->Form->end(); ?>
 
-    <img class="img-responsive" src="http://placehold.it/1000x250/34495e/2c3e50" alt="Third slide">
+    <img class="img-responsive" src="http://placehold.it/1000x250/34495e/2c3e50" alt="">
 
 </div>

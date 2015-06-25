@@ -1,5 +1,5 @@
 <div id="box-planos" class="col-lg-4 sombra-topo borda-verde1 bg-cinza-claro boxex height-servicos bordatopverde2">
-    <h2 class="tit-verde1"><span class="barra1"></span>PLANOS <span class="fontitalic">FAREM</span></h2>
+    <h2 class="tit-verde1"><span class="barra1"></span>><?php echo __('PLANOS'); ?> <span class="fontitalic"><?php echo __('FAREM'); ?></span></h2>
 
     <div id="carousel-planos" class="planos carousel slide" data-ride="carousel">
 

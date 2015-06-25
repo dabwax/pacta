@@ -1,5 +1,5 @@
 <div id="box-noticias" class="col-lg-6 sombra-interna bg-cinza-escuro boxex">
-    <h2 class="tit-verde2"><span class="barra2"></span>NOTÍCIAS</h2>
+    <h2 class="tit-verde2"><span class="barra2"></span><?php echo __('NOTÍCIAS'); ?></h2>
 
   <?php foreach($noticias as $n) : ?>
     <section class="noticias-home">

@@ -49,10 +49,10 @@ class PinsController extends AppController
         if ($this->request->is('post')) {
             $pin = $this->Pins->patchEntity($pin, $this->request->data);
             if ($this->Pins->save($pin)) {
-                $this->Flash->success(__('The pin has been saved.'));
+                $this->Flash->success(__('O pin foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The pin could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o pin.'));
             }
         }
         $this->set(compact('pin'));
@@ -74,10 +74,10 @@ class PinsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pin = $this->Pins->patchEntity($pin, $this->request->data);
             if ($this->Pins->save($pin)) {
-                $this->Flash->success(__('The pin has been saved.'));
+                $this->Flash->success(__('O pin foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The pin could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o pin.'));
             }
         }
         $this->set(compact('pin'));
@@ -96,9 +96,9 @@ class PinsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $pin = $this->Pins->get($id);
         if ($this->Pins->delete($pin)) {
-            $this->Flash->success(__('The pin has been deleted.'));
+                $this->Flash->success(__('O pin foi excluido.'));
         } else {
-            $this->Flash->error(__('The pin could not be deleted. Please, try again.'));
+                $this->Flash->error(__('Não foi possível excluir o pin.'));
         }
         return $this->redirect(['action' => 'index']);
     }

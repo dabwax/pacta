@@ -9,7 +9,7 @@ class HomeController extends BaseController
 {
     public $paginate = [
         'Posts' => [
-            'limit' => 1,
+            'limit' => 3,
             'order' => [
                 'Posts.published_date' => 'DESC'
             ]

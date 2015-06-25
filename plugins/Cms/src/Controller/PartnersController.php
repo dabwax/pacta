@@ -55,10 +55,10 @@ class PartnersController extends AppController
             $this->request->data['attachment'] = $this->Upload->uploadIt("attachment");
             $partner = $this->Partners->patchEntity($partner, $this->request->data);
             if ($this->Partners->save($partner)) {
-                $this->Flash->success(__('The partner has been saved.'));
+                $this->Flash->success(__('O parceiro foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The partner could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o parceiro.'));
             }
         }
         $this->set(compact('partner'));
@@ -81,10 +81,10 @@ class PartnersController extends AppController
             $this->request->data['attachment'] = $this->Upload->uploadIt("attachment");
             $partner = $this->Partners->patchEntity($partner, $this->request->data);
             if ($this->Partners->save($partner)) {
-                $this->Flash->success(__('The partner has been saved.'));
+                $this->Flash->success(__('O parceiro foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The partner could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o parceiro.'));
             }
         }
         $this->set(compact('partner'));
@@ -103,9 +103,9 @@ class PartnersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $partner = $this->Partners->get($id);
         if ($this->Partners->delete($partner)) {
-            $this->Flash->success(__('The partner has been deleted.'));
+                $this->Flash->success(__('O parceiro foi excluido.'));
         } else {
-            $this->Flash->error(__('The partner could not be deleted. Please, try again.'));
+                $this->Flash->error(__('Não foi possível excluir o parceiro.'));
         }
         return $this->redirect(['action' => 'index']);
     }

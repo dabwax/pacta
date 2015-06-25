@@ -9,13 +9,8 @@
     <fieldset>
         <legend><?= __('Add Pin') ?></legend>
         <?php
+            echo $this->Form->input('data');
             echo $this->Form->input('address');
-            echo $this->Form->input('neighborhood');
-            echo $this->Form->input('city');
-            echo $this->Form->input('state');
-            echo $this->Form->input('country');
-            echo $this->Form->input('latitude');
-            echo $this->Form->input('longitude');
             echo $this->Form->input('type');
         ?>
     </fieldset>

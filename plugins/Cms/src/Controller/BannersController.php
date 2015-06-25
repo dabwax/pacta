@@ -42,10 +42,10 @@ class BannersController extends AppController
 
             $banner = $this->Banners->newEntity($this->request->data);
             if ($this->Banners->save($banner)) {
-                $this->Flash->success(__('The banner has been saved.'));
+                $this->Flash->success(__('O banner foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The banner could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o banner.'));
             }
         }
         $this->set(compact('banner'));
@@ -68,10 +68,10 @@ class BannersController extends AppController
             $this->request->data['attachment'] = $this->Upload->uploadIt("attachment");
             $banner = $this->Banners->patchEntity($banner, $this->request->data);
             if ($this->Banners->save($banner)) {
-                $this->Flash->success(__('The banner has been saved.'));
+                $this->Flash->success(__('O banner foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The banner could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o banner.'));
             }
         }
         $this->set(compact('banner'));
@@ -90,9 +90,9 @@ class BannersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $banner = $this->Banners->get($id);
         if ($this->Banners->delete($banner)) {
-            $this->Flash->success(__('The banner has been deleted.'));
+                $this->Flash->success(__('O banner foi excluir.'));
         } else {
-            $this->Flash->error(__('The banner could not be deleted. Please, try again.'));
+                $this->Flash->error(__('Não foi possível excluir o banner.'));
         }
         return $this->redirect(['action' => 'index']);
     }

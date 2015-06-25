@@ -15,13 +15,8 @@ class Pin extends Entity
      * @var array
      */
     protected $_accessible = [
+        'data' => true,
         'address' => true,
-        'neighborhood' => true,
-        'city' => true,
-        'state' => true,
-        'country' => true,
-        'latitude' => true,
-        'longitude' => true,
-        'type' => true,
+        'tag' => true,
     ];
 }

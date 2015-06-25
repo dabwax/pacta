@@ -39,30 +39,15 @@ class PinsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
+        $validator
+            ->allowEmpty('data');
+
         $validator
             ->allowEmpty('address');
-            
+
         $validator
-            ->allowEmpty('neighborhood');
-            
-        $validator
-            ->allowEmpty('city');
-            
-        $validator
-            ->allowEmpty('state');
-            
-        $validator
-            ->allowEmpty('country');
-            
-        $validator
-            ->allowEmpty('latitude');
-            
-        $validator
-            ->allowEmpty('longitude');
-            
-        $validator
-            ->allowEmpty('type');
+            ->allowEmpty('tag');
 
         return $validator;
     }

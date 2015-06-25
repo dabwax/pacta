@@ -26,22 +26,6 @@ class TransfersController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Transfer id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $transfer = $this->Transfers->get($id, [
-            'contain' => ['Users']
-        ]);
-        $this->set('transfer', $transfer);
-        $this->set('_serialize', ['transfer']);
-    }
-
-    /**
      * Add method
      *
      * @return void Redirects on successful add, renders view otherwise.
@@ -52,10 +36,10 @@ class TransfersController extends AppController
         if ($this->request->is('post')) {
             $transfer = $this->Transfers->patchEntity($transfer, $this->request->data);
             if ($this->Transfers->save($transfer)) {
-                $this->Flash->success(__('The transfer has been saved.'));
+                $this->Flash->success(__('A transferência foi salva.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The transfer could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar a transferência.'));
             }
         }
         $users = $this->Transfers->Users->find('list', ['limit' => 200]);
@@ -78,10 +62,10 @@ class TransfersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $transfer = $this->Transfers->patchEntity($transfer, $this->request->data);
             if ($this->Transfers->save($transfer)) {
-                $this->Flash->success(__('The transfer has been saved.'));
+                $this->Flash->success(__('A transferência foi salva.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The transfer could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar a transferência.'));
             }
         }
         $users = $this->Transfers->Users->find('list', ['limit' => 200]);
@@ -101,9 +85,9 @@ class TransfersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $transfer = $this->Transfers->get($id);
         if ($this->Transfers->delete($transfer)) {
-            $this->Flash->success(__('The transfer has been deleted.'));
+                $this->Flash->success(__('A transferência foi excluida.'));
         } else {
-            $this->Flash->error(__('The transfer could not be deleted. Please, try again.'));
+                $this->Flash->error(__('Não foi possível excluir a transferência.'));
         }
         return $this->redirect(['action' => 'index']);
     }

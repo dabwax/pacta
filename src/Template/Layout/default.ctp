@@ -72,9 +72,9 @@
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-7 altura-rodape sombra-topo box-rodape">
             <address id="endereco">
                 <p>PACTA SUNT SERVANDA<br/>
-                Centro de Negócios Internacionais<br/>
-                Avenida Floriano Peixoto, 51 – 12º andar<br/>
-                Centro, 20020-906
+                <?php echo __('Centro de Negócios Internacionais'); ?></br>
+                        <?php echo __('Avenida Floriano Peixoto, 51 – 12º andar'); ?></br>
+                        <?php echo __('Centro, 20020-906'); ?></p>
             </address>
             <div class="linha-rodape hidden-xs"></div>
 
@@ -82,10 +82,10 @@
     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-13 altura-rodape sombra-topo box-rodape">
 
         <ul class="menu-rodape">
-            <li><a href="#">INSTITUCIONAL</a></li>
-            <li><a href="#">NOSSOS SERVIÇOS </a></li>
-            <li><a href="#">ONDE ESTAMOS</a>
-            <li><a href="#">OPORTUNIDADES</a></li>
+            <li><a href="<?php echo $this->Url->build( ['controller' => 'Institucional', 'action' => 'index'] ); ?>"><?php echo __('INSTITUCIONAL'); ?></a></li>
+            <li><a href="<?php echo $this->Url->build( ['controller' => 'Servicos', 'action' => 'index'] ); ?>"><?php echo __('NOSSOS SERVIÇOS'); ?></a></li>
+            <li><a href="<?php echo $this->Url->build( ['controller' => 'Localizacao', 'action' => 'index'] ); ?>"><?php echo __('ONDE ESTAMOS'); ?></a>
+            <li><a href="<?php echo $this->Url->build( ['controller' => 'Oportunidades', 'action' => 'index'] ); ?>"><?php echo __('OPORTUNIDADES'); ?></a></li>
           </ul>
 
           <div class="linha-rodape hidden-xs"></div>
@@ -93,11 +93,11 @@
     <div class="col-lg-4 col-md-4 col-sm-3 col-xs-13 altura-rodape sombra-topo box-rodape">
 
         <ul class="menu-rodape">
-            <li><a href="www.farem.eu" target="_blanck">FAREM</a></li>
-            <li><a href="#">LINKEDIN </a></li>
-            <li><a href="#">CONTATO</a>
+            <li><a href="www.farem.eu" target="_blanck"><?php echo __('FAREM'); ?></a></li>
+            <li><a href="#"><?php echo __('LINKEDIN'); ?></a></li>
+            <li><a href="<?php echo $this->Url->build( ['controller' => 'Contato', 'action' => 'index'] ); ?>"><?php echo __('CONTATO'); ?></a>
         </ul>
-        <p class="txt-right">Pacta®2015</p>
+        <p class="txt-right">Pacta®<?php echo date("Y"); ?></p>
     </div>
 </div>
 

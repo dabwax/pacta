@@ -1,0 +1,256 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2015-06-25 19:22-0300\n"
+"PO-Revision-Date: 2015-06-25 19:31-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.1\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: /Controller/ContatoController.php:20
+msgid "O seu contato foi enviado."
+msgstr "Votre contact a été envoyé."
+
+#: /Controller/ContatoController.php:30
+msgid "Não foi possível enviar o contato."
+msgstr "Impossible d'envoyer le contact."
+
+#: /Template/Contato/index.ctp:18 /Template/Element/menu.ctp:11;19
+#: /Template/Layout/default.ctp:98
+msgid "CONTATO"
+msgstr "CONTACT"
+
+#: /Template/Contato/index.ctp:19
+msgid ""
+"Preencha os campos abaixo para entrar em contato conosco, ou se preferir "
+"envie um e-mail para contato@pacta.com.br."
+msgstr ""
+"Remplissez les champs ci-dessous pour nous contacter, ou si vous préférez "
+"envoyer un email à contato@pacta.com.br."
+
+#: /Template/Contato/index.ctp:24 /Template/Oportunidades/index.ctp:54
+msgid "Digite seu nome"
+msgstr "Entrez votre nom"
+
+#: /Template/Contato/index.ctp:27 /Template/Oportunidades/index.ctp:57
+msgid "Digite seu e-mail"
+msgstr "Entrez votre email"
+
+#: /Template/Contato/index.ctp:30
+msgid "Digite o assunto"
+msgstr "Entrez le sujet"
+
+#: /Template/Contato/index.ctp:33
+msgid "Digite a mensagem"
+msgstr "Tapez votre message"
+
+#: /Template/Contato/index.ctp:35 /Template/Element/home_slider.ctp:60
+#: /Template/Oportunidades/index.ctp:66
+msgid "ENVIAR"
+msgstr "ENVOYER"
+
+#: /Template/Contato/index.ctp:40
+msgid "ENDEREÇO"
+msgstr "ADRESSE"
+
+#: /Template/Contato/index.ctp:42 /Template/Layout/default.ctp:75
+msgid "Centro de Negócios Internacionais"
+msgstr "International Business Center"
+
+#: /Template/Contato/index.ctp:43 /Template/Layout/default.ctp:76
+msgid "Avenida Floriano Peixoto, 51 – 12º andar"
+msgstr "Avenida Floriano Peixoto, 51 - 12e étage"
+
+#: /Template/Contato/index.ctp:44 /Template/Layout/default.ctp:77
+msgid "Centro, 20020-906"
+msgstr "Centro, 20020-906"
+
+#: /Template/Element/home_box_newsletter.ctp:11
+msgid "ASSINATURA DE NEWSLETTER"
+msgstr "INSCRIVEZ-VOUS A LA NEWSLETTER"
+
+#: /Template/Element/home_box_noticias.ctp:2
+msgid "NOTÍCIAS"
+msgstr "NOUVELLES"
+
+#: /Template/Element/home_box_parceiros.ctp:2
+msgid "PARCEIROS"
+msgstr "PARTENAIRES"
+
+#: /Template/Element/home_box_planos.ctp:2
+msgid "PLANOS"
+msgstr "PLANS"
+
+#: /Template/Element/home_box_planos.ctp:2 /Template/Layout/default.ctp:96
+#: /Template/Localizacao/index.ctp:36
+msgid "FAREM"
+msgstr "FAREM"
+
+#: /Template/Element/home_slider.ctp:50
+msgid "LOGIN"
+msgstr "LOGIN"
+
+#: /Template/Element/home_slider.ctp:52
+msgid "USUÁRIO"
+msgstr "UTILISATEUR"
+
+#: /Template/Element/home_slider.ctp:53
+msgid "Endereço de E-mail"
+msgstr "Adresse e-mail"
+
+#: /Template/Element/home_slider.ctp:56
+msgid "SENHA"
+msgstr "MOT DE PASSE"
+
+#: /Template/Element/home_slider.ctp:57
+msgid "Senha"
+msgstr "MOT DE PASSE"
+
+#: /Template/Element/home_slider.ctp:62
+msgid "Esqueci minha senha"
+msgstr "J'ai oublié mon mot de passe"
+
+#: /Template/Element/home_slider.ctp:66
+msgid "EMPRESA"
+msgstr "ENTREPRISE"
+
+#: /Template/Element/home_slider.ctp:68
+msgid "Plano Adquirido:"
+msgstr "Plan acquise:"
+
+#: /Template/Element/home_slider.ctp:71
+msgid "MEU PERFIL"
+msgstr "MON PROFIL"
+
+#: /Template/Element/home_slider.ctp:73
+msgid "RISCO BRASIL"
+msgstr "risque Brésil"
+
+#: /Template/Element/home_slider.ctp:74
+msgid "NETWORK BRASIL"
+msgstr "RÉSEAU BRÉSIL"
+
+#: /Template/Element/home_slider.ctp:75
+msgid "SAIR"
+msgstr "SORTIE"
+
+#: /Template/Element/menu.ctp:7 /Template/Layout/default.ctp:85
+msgid "INSTITUCIONAL"
+msgstr "INSTITUTIONNEL"
+
+#: /Template/Element/menu.ctp:8 /Template/Layout/default.ctp:86
+msgid "NOSSOS SERVIÇOS"
+msgstr "NOS SERVICES"
+
+#: /Template/Element/menu.ctp:9 /Template/Layout/default.ctp:88
+msgid "OPORTUNIDADES"
+msgstr "OPPORTUNITÉS"
+
+#: /Template/Element/menu.ctp:10 /Template/Layout/default.ctp:87
+#: /Template/Localizacao/index.ctp:22
+msgid "ONDE ESTAMOS"
+msgstr "OÙ NOUS SOMMES"
+
+#: /Template/Element/menu.ctp:17
+msgid "Farem"
+msgstr "Farem"
+
+#: /Template/Element/menu.ctp:18 /Template/Layout/default.ctp:97
+msgid "LINKEDIN"
+msgstr "LINKEDIN"
+
+#: /Template/Home/index.ctp:59 /Template/Oportunidades/index.ctp:87
+msgid "FECHAR"
+msgstr "FERMER"
+
+#: /Template/Localizacao/index.ctp:25
+msgid ""
+"Nossas representações fora do país são escritórios que atuam em áreas de "
+"tributação, fiscalidade e\n"
+"            contabilidade, atendendo tanto empresas locais, quanto "
+"multinacionais. Sua vasta experiência no\n"
+"            mercado local, conciliada ao interessante portfolio de clientes "
+"internacionais que já atenderam, nos\n"
+"            permite confiar o repasse de assistência em fases finais de "
+"estabelecimento de filiais no estrangeiro,\n"
+"            por exemplo."
+msgstr ""
+"Nos représentations à l'étranger sont des bureaux opérant dans les domaines "
+"de la fiscalité, et la fiscalité\n"
+"             Comptabilité, servant à la fois les entreprises locales et "
+"multinationales. Sa vaste expérience dans\n"
+"             marché local, réconcilié avec le portefeuille intéressant de "
+"clients internationaux qui ont traité dans\n"
+"             la confiance permet le passage de service dans les dernières "
+"étapes de la création de succursales à l'étranger\n"
+"             par exemple."
+
+#: /Template/Localizacao/index.ctp:38
+msgid "PACTA"
+msgstr "PACTA"
+
+#: /Template/Localizacao/index.ctp:40
+msgid "TODOS"
+msgstr "ALL"
+
+#: /Template/Oportunidades/index.ctp:20
+msgid "Oportunidades"
+msgstr "Opportunités"
+
+#: /Template/Oportunidades/index.ctp:46
+msgid "Cadastro"
+msgstr "Cadastre"
+
+#: /Template/Oportunidades/index.ctp:47
+msgid ""
+"Conheça melhor as formas de se envolver na primeira representação da "
+"plataforma\n"
+"            FAREM no Brasil. Envie seu currículo para análise, e vire um "
+"consultor da primeira\n"
+"            rede de intenções de negócios internacionais, conectando China, "
+"Europa e América Latina."
+msgstr ""
+"En savoir plus sur les façons de vous impliquer dans la première plate-"
+"forme de la représentation\n"
+"             FAREM au Brésil. Envoyez votre CV à l'examen, et de prendre un "
+"premier consultant\n"
+"             réseau d'intentions commerciales internationales, reliant la "
+"Chine, l'Europe et l'Amérique latine."
+
+#: /Template/Oportunidades/index.ctp:60
+msgid "Digite o endereço do seu LinkedIn"
+msgstr "Entrez l'adresse de votre LinkedIn"
+
+#: /Template/Oportunidades/index.ctp:63
+msgid "ANEXAR CURRÍCULO"
+msgstr "Joindre un curriculum"
+
+#: /Template/Oportunidades/index.ctp:74
+msgid "Nome da vaga"
+msgstr "Nom d'emploi"
+
+#: /Template/Oportunidades/index.ctp:77
+msgid "Descrição da vaga"
+msgstr "Description De L'Emploi"
+
+#: /Template/Oportunidades/index.ctp:81
+msgid "Localização da vaga"
+msgstr "Lieu de travail\n"
+
+#: /Template/Error/error400.ctp:33 /Template/Error/error500.ctp:35
+msgid "Error"
+msgstr "Erreur"
+
+#: /Template/Error/error400.ctp:35
+msgid "The requested address %s was not found on this server."
+msgstr "L'adresse demandée% s n'a pas été trouvée sur ce serveur."
+
+#: /Template/Error/error500.ctp:33
+msgid "An Internal Error Has Occurred"
+msgstr "Une Erreur Interne S'est Produite"

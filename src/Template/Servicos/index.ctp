@@ -23,16 +23,16 @@
 
     <div class="panel-group sanfona-servicos" id="accordion" role="tablist" aria-multiselectable="true">
 
-            <?php foreach($servicos as $s) : ?>
+            <?php $i = 1; foreach($servicos as $s) : ?>
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
               <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $s->id; ?>" aria-expanded="true" aria-controls="collapse<?php echo $s->id; ?>">
                   <?php echo $s->name; ?><spam class="pull-right"><img src="img/seta-servicos-down.png" height="10" width="11"></spam>
                 </a>
               </h4>
             </div>
-            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div id="collapse<?php echo $s->id; ?>" class="panel-collapse collapse <?php if($i == 1) : ?> in<?php endif; ?>" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body mright10 mleft10">
                   <div class="col-md-13 pleft0 pright0">
 
@@ -61,7 +61,7 @@
               </div>
             </div>
           </div>
-      <?php endforeach; ?>
+      <?php $i++; endforeach; ?>
 
         </div>
     </div>

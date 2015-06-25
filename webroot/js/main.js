@@ -1,6 +1,44 @@
 
 $(document).ready(function(){
 
+  $(".checkbox-pin").click(function() {
+    var $this = $(this);
+    var value = $this.val();
+
+      var todos_markers  = $("#mapa").gmap3({
+            get: {
+              name:"marker",
+              all: true
+            }
+          });
+
+    if(value == "todos") {
+
+    $.each(todos_markers, function(i, marker){
+      marker.setVisible(true);
+    });
+
+    } else {
+
+      var markers  = $("#mapa").gmap3({
+            get: {
+              name:"marker",
+              all: true,
+              tag: value
+            }
+          });
+
+    $.each(todos_markers, function(i, marker){
+      marker.setVisible(false);
+    });
+
+    $.each(markers, function(i, marker){
+      marker.setVisible(true);
+    });
+
+    }
+  });
+
     var styles = [
   {
     "featureType": "water",
@@ -36,11 +74,7 @@ $(document).ready(function(){
             }
         },
         marker: {
-            values: [
-              {latLng:[48.8620722, 2.352047], data:"Paris !", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}},
-              {address:"86000 Poitiers, France", data:"Poitiers : great city !", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}},
-              {address:"66000 Perpignan, France", data:"Perpignan ! GO USAP !", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}}
-            ],
+            values: $("#mapa").data("pins"),
             events:{
               mouseover: function(marker, event, context){
                 var map = $(this).gmap3("get"),

@@ -8,7 +8,7 @@ class OportunidadesController extends AppController
 {
     public $paginate = [
         'Opportunities' => [
-            'limit' => 1,
+            'limit' => 3,
             'order' => [
                 'Opportunities.created' => 'DESC'
             ]

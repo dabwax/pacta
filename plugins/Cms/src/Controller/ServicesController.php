@@ -49,10 +49,10 @@ class ServicesController extends AppController
         if ($this->request->is('post')) {
             $service = $this->Services->patchEntity($service, $this->request->data);
             if ($this->Services->save($service)) {
-                $this->Flash->success(__('The service has been saved.'));
+                $this->Flash->success(__('O serviço foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The service could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o serviço.'));
             }
         }
         $this->set(compact('service'));
@@ -74,10 +74,10 @@ class ServicesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $service = $this->Services->patchEntity($service, $this->request->data);
             if ($this->Services->save($service)) {
-                $this->Flash->success(__('The service has been saved.'));
+                $this->Flash->success(__('O serviço foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The service could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o serviço.'));
             }
         }
         $this->set(compact('service'));
@@ -96,9 +96,9 @@ class ServicesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $service = $this->Services->get($id);
         if ($this->Services->delete($service)) {
-            $this->Flash->success(__('The service has been deleted.'));
+                $this->Flash->success(__('O serviço foi excluido.'));
         } else {
-            $this->Flash->error(__('The service could not be deleted. Please, try again.'));
+                $this->Flash->error(__('Não foi possível excluir o serviço.'));
         }
         return $this->redirect(['action' => 'index']);
     }

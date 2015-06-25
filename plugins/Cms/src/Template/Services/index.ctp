@@ -23,8 +23,8 @@
             <td><?= h($service->name) ?></td>
             <td><?= h($service->created->format("d/m/Y H:i:s")) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $service->id]) ?>
-                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $service->id], ['confirm' => __('Are you sure you want to delete # {0}?', $service->id)]) ?>
+                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $service->id],['class' => 'btn btn-primary']) ?>
+                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $service->id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $service->id)]) ?>
             </td>
         </tr>
 

@@ -13,7 +13,11 @@
       <?php $i = 0; foreach($banners as $b) { ?>
         <div class="item item-slider <?php if($i == 0) : ?>active<?php endif; ?>">
             <!-- Set the first background image using inline CSS below. -->
-            <div class="fill" style="background-image:url('<?php echo $this->Url->build("/uploads/" . $b->attachment); ?>');"></div>
+            <div class="fill" style="background-image:url('<?php echo $this->Url->build("/uploads/" . $b->attachment); ?>');">
+            <?php if(!empty($b->url)) : ?>
+              <a href="<?php echo $b->url; ?>" style="position: absolute; left: 0 px; top: 0px; width:  100%; height: 100%;"></a>
+            <?php endif; ?>
+            </div>
 
             <div class="main-text hidden-xs">
               <div id="texto-banner" class="col-lg-4 col-md-6 col-sm-6 col-xl-9 center-block">
@@ -43,32 +47,32 @@
          <div class="row">
             <div class="col-md-13">
                <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="form-login">
-                  <h2 class="txt-center">LOGIN</h2>
+                  <h2 class="txt-center"><?php echo __('LOGIN'); ?></h2>
                   <div class="form-group">
-                     <label class="sr-only" for="exampleInputEmail2">USUÁRIO</label>
-                     <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                     <label class="sr-only" for="exampleInputEmail2"><?php echo __('USUÁRIO'); ?></label>
+                     <input type="email" class="form-control" id="exampleInputEmail2" placeholder="<?php echo __('Endereço de E-mail'); ?>" required>
                   </div>
                   <div class="form-group">
-                     <label class="sr-only" for="exampleInputPassword2">SENHA</label>
-                     <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                     <label class="sr-only" for="exampleInputPassword2"><?php echo __('SENHA'); ?></label>
+                     <input type="password" class="form-control" id="exampleInputPassword2" placeholder="<?php echo __('Senha'); ?>" required>
                   </div>
                   <div class="form-group">
-                     <button type="submit" class="btn btn-success btn-block btn-login">ENVIAR</button>
+                     <button type="submit" class="btn btn-success btn-block btn-login"><?php echo __('ENVIAR'); ?></button>
                   </div>
-                  <p id="esqueceu-senha" class="txt-center"><a href="#">Esqueci minha Senha</a></p>
+                  <p id="esqueceu-senha" class="txt-center"><a href="#"><?php echo __('Esqueci minha senha'); ?></a></p>
                </form>
 
                <section id="menu-usuario">
-                  <h2 class="txt-center">EMPRESA</h2>
+                  <h2 class="txt-center"><?php echo __('EMPRESA'); ?></h2>
                   <p class="dados-usuarios">meuemail@email.com</p>
-                  <p class="dados-usuarios">Plano adquirirdo: FAREM Consulting</p>
+                  <p class="dados-usuarios"><?php echo __('Plano Adquirido:'); ?> FAREM Consulting</p>
                   <ul  class="nav nav-pills nav-stacked">
                     <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a href="#">MEU PERFIL</a></li>
+                    <li role="presentation"><a href="#"><?php echo __('MEU PERFIL'); ?></a></li>
                     <li role="presentation"><a href="#">GED</a></li>
-                    <li role="presentation"><a href="#">RISCO BRASIL</a></li>
-                    <li role="presentation"><a href="#">NETWORK BRASIL</a></li>
-                    <li role="presentation"><a href="#">SAIR</a></li>
+                    <li role="presentation"><a href="#"><?php echo __('RISCO BRASIL'); ?></a></li>
+                    <li role="presentation"><a href="#"><?php echo __('NETWORK BRASIL'); ?></a></li>
+                    <li role="presentation"><a href="#"><?php echo __('SAIR'); ?></a></li>
                   </ul>
                </section>
 

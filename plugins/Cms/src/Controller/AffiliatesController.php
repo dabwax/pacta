@@ -54,6 +54,7 @@ class AffiliatesController extends AppController
     {
         $affiliate = $this->Affiliates->newEntity();
         if ($this->request->is('post')) {
+
             $affiliate = $this->Affiliates->patchEntity($affiliate, $this->request->data);
             if ($this->Affiliates->save($affiliate)) {
                 $this->Flash->success(__('O associado foi cadastrado.'));
@@ -80,7 +81,12 @@ class AffiliatesController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+            var_dump($affiliate->dirty());
+
             $affiliate = $this->Affiliates->patchEntity($affiliate, $this->request->data);
+
+
+            die();
             if ($this->Affiliates->save($affiliate)) {
                 $this->Flash->success(__('O associado foi editado.'));
                 return $this->redirect(['action' => 'index']);

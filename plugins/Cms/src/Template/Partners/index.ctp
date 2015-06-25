@@ -26,8 +26,8 @@
             <td><?= $this->Html->upload($partner->attachment, ['style' => 'height: 100px;']) ?></td>
             <td><?= h($partner->created->format("d/m/Y H:i:s")) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $partner->id]) ?>
-                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $partner->id], ['confirm' => __('Are you sure you want to delete # {0}?', $partner->id)]) ?>
+                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $partner->id], ['class' => 'btn btn-primary']) ?>
+                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $partner->id], ['class' => 'btn btn-danger', 'confirm' => __('Você tem certeza disto? Esta ação é PERMANENTE!', $partner->id)]) ?>
             </td>
         </tr>
 

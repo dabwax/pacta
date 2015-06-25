@@ -49,10 +49,10 @@ class PostsController extends AppController
         if ($this->request->is('post')) {
             $post = $this->Posts->patchEntity($post, $this->request->data);
             if ($this->Posts->save($post)) {
-                $this->Flash->success(__('The post has been saved.'));
+                $this->Flash->success(__('O post foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The post could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o post.'));
             }
         }
         $this->set(compact('post'));
@@ -74,10 +74,10 @@ class PostsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $post = $this->Posts->patchEntity($post, $this->request->data);
             if ($this->Posts->save($post)) {
-                $this->Flash->success(__('The post has been saved.'));
+                $this->Flash->success(__('O post foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The post could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o post.'));
             }
         }
         $this->set(compact('post'));
@@ -96,9 +96,9 @@ class PostsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $post = $this->Posts->get($id);
         if ($this->Posts->delete($post)) {
-            $this->Flash->success(__('The post has been deleted.'));
+                $this->Flash->success(__('O post foi excluido.'));
         } else {
-            $this->Flash->error(__('The post could not be deleted. Please, try again.'));
+                $this->Flash->error(__('Não foi possível excluir o post.'));
         }
         return $this->redirect(['action' => 'index']);
     }

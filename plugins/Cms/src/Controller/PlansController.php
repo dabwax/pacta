@@ -40,10 +40,10 @@ class PlansController extends AppController
             $this->request->data['attachment'] = $this->Upload->uploadIt("attachment");
             $plan = $this->Plans->patchEntity($plan, $this->request->data);
             if ($this->Plans->save($plan)) {
-                $this->Flash->success(__('The plan has been saved.'));
+                $this->Flash->success(__('O plano foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The plan could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o plano.'));
             }
         }
         $this->set(compact('plan'));
@@ -66,10 +66,10 @@ class PlansController extends AppController
             $this->request->data['attachment'] = $this->Upload->uploadIt("attachment");
             $plan = $this->Plans->patchEntity($plan, $this->request->data);
             if ($this->Plans->save($plan)) {
-                $this->Flash->success(__('The plan has been saved.'));
+                $this->Flash->success(__('O plano foi salvo.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The plan could not be saved. Please, try again.'));
+                $this->Flash->error(__('Não foi possível salvar o plano.'));
             }
         }
         $this->set(compact('plan'));
@@ -88,9 +88,9 @@ class PlansController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $plan = $this->Plans->get($id);
         if ($this->Plans->delete($plan)) {
-            $this->Flash->success(__('The plan has been deleted.'));
+                $this->Flash->success(__('O plano foi excluido.'));
         } else {
-            $this->Flash->error(__('The plan could not be deleted. Please, try again.'));
+                $this->Flash->error(__('Não foi possível excluir o plano.'));
         }
         return $this->redirect(['action' => 'index']);
     }

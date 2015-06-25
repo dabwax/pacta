@@ -25,8 +25,8 @@
             <td><?= h($plan->price) ?></td>
             <td><?= h($plan->created->format("d/m/Y H:i:s")) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $plan->id]) ?>
-                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $plan->id], ['confirm' => __('Are you sure you want to delete # {0}?', $plan->id)]) ?>
+                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $plan->id], ['class' => 'btn btn-primary']) ?>
+                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $plan->id], ['confirm' => __('Are you sure you want to delete # {0}?', $plan->id), 'class' => 'btn btn-danger']) ?>
             </td>
         </tr>
 

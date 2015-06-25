@@ -20,9 +20,13 @@ class Affiliate extends Entity
         'plan_id' => true,
         'responsible_name' => true,
         'responsible_email' => true,
+        'responsible_password' => true,
+        'responsible_last_login' => true,
         'status' => true,
         'plan' => true,
     ];
+
+    // accessor and mutators
 
     protected function _getDateOfAccession($field)
     {
@@ -43,4 +47,5 @@ class Affiliate extends Entity
 
         return $field;
     }
+
 }

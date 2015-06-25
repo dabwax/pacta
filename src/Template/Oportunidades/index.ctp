@@ -17,7 +17,7 @@
     <div id="oportunidades" class="row row-eq-height">
         <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 sombra-topo linha-verdeclaro-lateral verde-2 hidden-xs "></div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 sombra-interna bg-cinza-claro boxex bordatopverde2">
-            <h2 class="tit-verde1"><span class="barra1"></span>Oportunidades</h2>
+            <h2 class="tit-verde1"><span class="barra1"></span><?php echo __('Oportunidades'); ?></h2>
 
             <?php foreach($oportunidades as $o) : ?>
             <section class="vagas">
@@ -43,27 +43,27 @@
     </div>
 
     <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 sombra-topo borda-verde1 bg-cinza-claro boxex height-oportunidades bordatopverde2">
-        <h2 class="tit-verde1"><span class="barra1"></span>Cadastro</h2>
-        <p>Conheça melhor as formas de se envolver na primeira representação da plataforma
+        <h2 class="tit-verde1"><span class="barra1"></span><?php echo __('Cadastro'); ?></h2>
+        <p><?php echo __('Conheça melhor as formas de se envolver na primeira representação da plataforma
             FAREM no Brasil. Envie seu currículo para análise, e vire um consultor da primeira
-            rede de intenções de negócios internacionais, conectando China, Europa e América Latina. </p>
+            rede de intenções de negócios internacionais, conectando China, Europa e América Latina.'); ?> </p>
 
         <?php echo $this->Form->create($entityOpportunityCard, ['type' => 'file', 'id' => 'form-cadastro', 'class' => 'validate form' ,'url' => ['controller' => 'oportunidades', 'action' => 'cadastro'] ] ); ?>
 
             <div class="form-group">
-                <?php echo $this->Form->input("name", ['label' => false, 'div' => false, 'placeholder' => 'DIGITE SEU NOME', 'class' => 'form-control', 'required' => true]); ?>
+                <?php echo $this->Form->input("name", ['label' => false, 'div' => false, 'placeholder' => __('Digite seu nome'), 'class' => 'form-control', 'required' => true]); ?>
             </div>
             <div class="form-group">
-                <?php echo $this->Form->input("email", ['label' => false, 'div' => false, 'placeholder' => 'DIGITE SEU E-MAIL', 'class' => 'form-control', 'required' => true]); ?>
+                <?php echo $this->Form->input("email", ['label' => false, 'div' => false, 'placeholder' => __('Digite seu e-mail'), 'class' => 'form-control', 'required' => true]); ?>
             </div>
             <div class="form-group">
-                <?php echo $this->Form->input("linkedin", ['label' => false, 'div' => false, 'placeholder' => 'DIGITE O ENDEREÇO DO SEU LINKEDIN', 'class' => 'form-control', 'required' => true]); ?>
+                <?php echo $this->Form->input("linkedin", ['label' => false, 'div' => false, 'placeholder' => __('Digite o endereço do seu LinkedIn'), 'class' => 'form-control', 'required' => true]); ?>
             </div>
             <div class="form-group">
-                <button type='button' class='btn btn-verde btn-file btn-corriculo'>ANEXAR CURRÍCULO</button>
+                <button type='button' class='btn btn-verde btn-file btn-corriculo'><?php echo __('ANEXAR CURRÍCULO'); ?></button>
                 <?php echo $this->Form->input("attachment", ['label' => false, 'div' => false, 'type' => 'file', 'class' => 'hidden']); ?>
             </div>
-            <button type="submit" class="btn btn-success btn-verde">ENVIAR</button>
+            <button type="submit" class="btn btn-success btn-verde"><?php echo __('ENVIAR'); ?></button>
         <?php echo $this->Form->end(); ?>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -71,20 +71,20 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="vaga-nome">Nome da vaga</h4>
+                <h4 class="modal-title" id="vaga-nome"><?php echo __('Nome da vaga'); ?></h4>
               </div>
               <div class="modal-body">
-                <strong>Descrição da vaga</strong>
+                <strong><?php echo __('Descrição da vaga'); ?></strong>
 
                 <div id="vaga-descricao"></div>
 
-                <strong>Localização da vaga</strong>
+                <strong><?php echo __('Localização da vaga'); ?></strong>
 
                 <div id="vaga-localizacao"></div>
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-verde" data-dismiss="modal">FECHAR</button>
+                <button type="button" class="btn btn-verde" data-dismiss="modal"><?php echo __('FECHAR'); ?></button>
               </div>
             </div>
         </div>

@@ -28,3 +28,9 @@
             )
         ?>
 </div>
+
+        <strong>Anexo Atual</strong>
+
+        <div class="clearfix"></div>
+
+        <?php echo $this->Html->upload($plan->attachment, ['style' => 'max-height: 360px;']); ?>

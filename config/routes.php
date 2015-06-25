@@ -48,6 +48,8 @@ Router::scope('/', function ($routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Home', 'action' => 'index']);
+    $routes->connect('/nossos-servicos', ['controller' => 'Servicos', 'action' => 'index']);
+    $routes->connect('/onde-estamos', ['controller' => 'Localizacao', 'action' => 'index']);
     $routes->connect('/cms', ['plugin' => 'Cms', 'controller' => 'Authentication', 'action' => 'login']);
 
     /**

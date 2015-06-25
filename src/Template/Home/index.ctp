@@ -56,7 +56,7 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-verde" data-dismiss="modal">FECHAR</button>
+            <button type="button" class="btn btn-verde" data-dismiss="modal"><?php echo __('FECHAR'); ?></button>
           </div>
         </div>
     </div>

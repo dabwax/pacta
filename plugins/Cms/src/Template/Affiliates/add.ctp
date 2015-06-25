@@ -9,6 +9,7 @@
             echo $this->Form->input('plan_id', ['options' => $plans, 'empty' => 'Selecionar Plano', 'label' => 'Plano Atual', 'required' => true]);
             echo $this->Form->input('responsible_name', ['label' => 'Nome do Responsável', 'required' => true, 'minlength' => 5]);
             echo $this->Form->input('responsible_email', ['label' => 'E-mail do Responsável', 'required' => true, 'type' => 'email', 'minlength' => 10]);
+            echo $this->Form->input('responsible_password', ['label' => 'Senha do Responsável', 'required' => false, 'type' => 'password', 'minlength' => 8, 'value' => '']);
             echo $this->Form->input('status');
         ?>
     </fieldset>

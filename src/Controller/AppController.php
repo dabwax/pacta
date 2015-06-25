@@ -15,6 +15,8 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\I18n\I18n;
+use Cake\Routing\Router;
 
 /**
  * Application Controller
@@ -27,6 +29,8 @@ use Cake\Controller\Controller;
 class AppController extends Controller
 {
     public $session;
+    public $browser_language;
+    public $current_subdomain;
 
     public $helpers = [
         'Html' => [
@@ -46,6 +50,7 @@ class AppController extends Controller
      */
     public function initialize()
     {
+
         parent::initialize();
         $this->loadComponent('Flash');
 
@@ -63,6 +68,45 @@ class AppController extends Controller
 
                 return $this->redirect(['controller' => 'authentication', 'action' => 'login']);
             } // fim - return
+
         } // fim - areaRestrita
+
+        // idioma
+        $this->browser_language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+        $this->current_subdomain = array_shift((explode(".",$_SERVER['HTTP_HOST'])));
+
+        $this->setApplicationLanguage();
+    }
+
+    public function setApplicationLanguage()
+    {
+            // se não hou ver idioma, define o idioma do browser
+            if(strlen($this->current_subdomain) != 2) {
+                // url atual
+                $current_url = Router::url('/', true);
+                $url_length = strlen(Router::url('/', true));
+
+                // futura URL
+                $new_url = 'http://' . $this->browser_language . '.' . substr($current_url, 7, $url_length);
+
+                // redireciona
+               return $this->redirect($new_url);
+            }
+
+            // detecta o idioma atual e carrega a localização correta
+            switch($this->current_subdomain) {
+                case 'pt':
+                    I18n::locale('pt_BR');
+                break;
+                case 'en':
+                    I18n::locale('en_US');
+                break;
+                case 'es':
+                    I18n::locale('es_ES');
+                break;
+                case 'fr':
+                    I18n::locale('fr_FR');
+                break;
+            }
     }
 }
