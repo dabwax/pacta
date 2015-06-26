@@ -1,5 +1,6 @@
 <div class="col-lg-12 col-md-12 col-sm-12 element pleft0 pright0 col-slider">
 
+<?php if(!empty($banners->toArray())) : ?>
 <div id="myCarousel" class="carousel slide">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -33,6 +34,9 @@
     </div> <!-- .carousel-inner -->
 
 </div> <!-- #myCarousel -->
+<?php else: ?>
+  <div class="alert alert-danger">Não há banners para este idioma.</div>
+<?php endif; ?>
 
   <a id="flag-br" href="<?php echo $language_urls['pt']; ?>"><img src="<?php echo $this->Url->build("/img/bandeira-br.png"); ?>" height="21" width="22"  alt="" title=""></a>
   <a id="flag-us" href="<?php echo $language_urls['en']; ?>"><img src="<?php echo $this->Url->build("/img/bandeira-usa.png"); ?>" height="21" width="22" alt="" title=""></a>

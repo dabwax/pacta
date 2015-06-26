@@ -14,8 +14,8 @@ class LocalizacaoController extends AppController
         $tablePins = TableRegistry::get('Pins');
 
         // Busca os banners
-        $banners = $tableBanners->find()->order(['created' => 'DESC'])->all();
-        $pins = $tablePins->find()->all();
+        $banners = $tableBanners->find('language')->order(['created' => 'DESC'])->all();
+        $pins = $tablePins->find('language')->all();
 
         $this->set(compact("pins", "banners"));
     }

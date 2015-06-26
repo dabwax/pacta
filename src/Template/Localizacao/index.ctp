@@ -47,6 +47,14 @@
 
           <div class="clearfix"></div>
 
+          <?php if(empty($pins->toArray())) : ?>
+            <div class="alert alert-danger">
+                Não há pins para este idioma.
+            </div>
+          <?php endif; ?>
+
+          <div class="clearfix"></div>
+
       </div>
   </div>
 

@@ -47,10 +47,36 @@ Router::scope('/', function ($routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Home', 'action' => 'index']);
-    $routes->connect('/nossos-servicos', ['controller' => 'Servicos', 'action' => 'index']);
-    $routes->connect('/onde-estamos', ['controller' => 'Localizacao', 'action' => 'index']);
+            $routes->connect('/', ['controller' => 'Home', 'action' => 'index']);
     $routes->connect('/cms', ['plugin' => 'Cms', 'controller' => 'Authentication', 'action' => 'login']);
+
+
+$current_url = Router::url('/', true);
+$url_length = strlen(Router::url('/', true));
+$browser_language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$current_subdomain = array_shift((explode(".",$_SERVER['HTTP_HOST'])));
+
+    switch ($current_subdomain) {
+        case 'es':
+            $routes->connect('/nuestros-servicios', ['controller' => 'Servicos', 'action' => 'index']);
+            $routes->connect('/donde-estamos', ['controller' => 'Localizacao', 'action' => 'index']);
+            break;
+        case 'pt':
+            $routes->connect('/nossos-servicos', ['controller' => 'Servicos', 'action' => 'index']);
+            $routes->connect('/onde-estamos', ['controller' => 'Localizacao', 'action' => 'index']);
+            break;
+        case 'en':
+            $routes->connect('/about-us', ['controller' => 'Institucional', 'action' => 'index']);
+            $routes->connect('/our-services', ['controller' => 'Servicos', 'action' => 'index']);
+            $routes->connect('/our-localization', ['controller' => 'Localizacao', 'action' => 'index']);
+            $routes->connect('/opportunities', ['controller' => 'Oportunidades', 'action' => 'index']);
+            $routes->connect('/contact', ['controller' => 'Contato', 'action' => 'index']);
+            break;
+
+        default:
+            # code...
+            break;
+    }
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

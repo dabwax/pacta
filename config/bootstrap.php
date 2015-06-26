@@ -53,6 +53,7 @@ use Cake\Network\Request;
 use Cake\Routing\DispatcherFactory;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
+use Cake\Routing\Router;
 
 /**
  * Read configuration file and inject configuration into various
@@ -203,3 +204,24 @@ Type::build('datetime')->useLocaleParser();
 
 Plugin::load('Cms', ['bootstrap' => false, 'routes' => true, 'autoload' => true]);
 Plugin::load('Utils');
+
+// url atual
+$current_url = Router::url('/', true);
+$url_length = strlen(Router::url('/', true));
+$browser_language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$current_subdomain = array_shift((explode(".",$_SERVER['HTTP_HOST'])));
+
+// se não hou ver idioma, define o idioma do browser
+if(strlen($current_subdomain) != 2) {
+
+
+    if(!in_array($browser_language, ['pt', 'en', 'es', 'fr'] )) {
+        $browser_language = "en";
+    }
+
+    // futura URL
+    $new_url =  "http://$browser_language.$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+    // redireciona
+   header("Location: " . $new_url);
+}

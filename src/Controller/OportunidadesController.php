@@ -47,10 +47,10 @@ class OportunidadesController extends AppController
         $tableBanners = TableRegistry::get('Banners');
 
         // Busca os banners
-        $banners = $tableBanners->find()->order(['created' => 'DESC'])->all();
+        $banners = $tableBanners->find('language')->order(['created' => 'DESC'])->all();
 
         // Busca a página de newsletter
-        $oportunidades = $tableOportunidades->find()->order(['id' => 'DESC']);
+        $oportunidades = $tableOportunidades->find('language')->order(['id' => 'DESC']);
         $oportunidades = $this->Paginate($oportunidades);
 
         $entityOpportunityCard = $tableOportunidadeCards->newEntity();

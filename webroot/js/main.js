@@ -64,7 +64,7 @@ $(document).ready(function(){
     $('#mapa').gmap3({
         map:{
             options:{
-                zoom: 2,
+                zoom: 3,
                 styles: styles,
                 scrollwheel: false,
                 navigationControl: false,
@@ -74,6 +74,19 @@ $(document).ready(function(){
             }
         },
         marker: {
+          callback:function(m) {
+            //m will be the array of markers
+           var bounds=new google.maps.LatLngBounds();
+           for(var i=0;i<m.length;++i)
+           {
+             bounds.extend(m[i].getPosition());
+           }
+           try{
+                var map=$(this).gmap3('get');
+                    map.fitBounds(bounds);
+                    map.setCenter(bounds.getCenter())
+               }catch(e){}
+          },
             values: $("#mapa").data("pins"),
             events:{
               mouseover: function(marker, event, context){

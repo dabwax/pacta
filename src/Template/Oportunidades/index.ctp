@@ -19,6 +19,12 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 sombra-interna bg-cinza-claro boxex bordatopverde2">
             <h2 class="tit-verde1"><span class="barra1"></span><?php echo __('Oportunidades'); ?></h2>
 
+            <?php if(empty($oportunidades->toArray())) : ?>
+                <div class="alert alert-danger">
+                    Não há oportunidades disponíveis para este idioma.
+                </div>
+            <?php endif; ?>
+
             <?php foreach($oportunidades as $o) : ?>
             <section class="vagas">
                 <a class="ver-vagas-disponiveis" href="javascript:;" data-json='<?php echo json_encode($o); ?>'><img src="img/icone-leia-mais-vagas.png" height="22" width="21"></a>
