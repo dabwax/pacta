@@ -10,6 +10,9 @@ use Cms\Controller\AppController;
  */
 class PinsController extends AppController
 {
+    public $paginate = [
+        'finder' => 'language',
+    ];
 
     /**
      * Index method

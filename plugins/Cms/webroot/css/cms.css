@@ -344,3 +344,27 @@ input[type="checkbox"] {
     font-weight: bold;
     font-family: 'Open Sans Condensed', sans-serif !important;
 }
+.flag {
+    width: 32px;
+    height: 32px;
+    background:url(../img/flags.png) no-repeat;
+    display: inline-block;
+    position: relative;
+    top: 9px;
+}
+
+.flag.flag-pt {background-position: -32px 0}
+.flag.flag-br {background-position: -32px 0}
+.flag.flag-es {background-position: -64px 0}
+.flag.flag-fr {background-position: 0 -32px}
+.flag.flag-us {background-position: -32px -32px}
+.flag.flag-en {background-position: -32px -32px}
+.btn-idioma {
+    color: #FFF !important;
+}
+.dropdown-primary a {
+      font-size: 22px;
+      text-transform: uppercase;
+      color: #000;
+        font-family: 'Open Sans Condensed',sans-serif;
+}

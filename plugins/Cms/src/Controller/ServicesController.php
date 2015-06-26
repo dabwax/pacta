@@ -10,7 +10,9 @@ use Cms\Controller\AppController;
  */
 class ServicesController extends AppController
 {
-
+    public $paginate = [
+        'finder' => 'language',
+    ];
     /**
      * Index method
      *

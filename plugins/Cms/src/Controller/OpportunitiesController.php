@@ -11,6 +11,10 @@ use Cms\Controller\AppController;
 class OpportunitiesController extends AppController
 {
 
+    public $paginate = [
+        'finder' => 'language',
+    ];
+
     /**
      * Index method
      *

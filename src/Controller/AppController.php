@@ -31,6 +31,7 @@ class AppController extends Controller
     public $session;
     public $browser_language;
     public $current_subdomain;
+    public $current_language_id;
 
     public $helpers = [
         'Html' => [
@@ -80,11 +81,17 @@ class AppController extends Controller
 
     public function setApplicationLanguage()
     {
+            // url atual
+            $current_url = Router::url('/', true);
+            $url_length = strlen(Router::url('/', true));
+
             // se não hou ver idioma, define o idioma do browser
             if(strlen($this->current_subdomain) != 2) {
-                // url atual
-                $current_url = Router::url('/', true);
-                $url_length = strlen(Router::url('/', true));
+
+
+                if(!in_array($this->browser_language, ['pt', 'en', 'es', 'fr'] )) {
+                    $this->browser_language = "en";
+                }
 
                 // futura URL
                 $new_url = 'http://' . $this->browser_language . '.' . substr($current_url, 7, $url_length);
@@ -93,19 +100,34 @@ class AppController extends Controller
                return $this->redirect($new_url);
             }
 
+
+            $language_urls = [
+                 'pt' => 'http://pt.' . substr($current_url, 10, $url_length),
+                 'en' => 'http://en.' . substr($current_url, 10, $url_length),
+                 'es' => 'http://es.' . substr($current_url, 10, $url_length),
+                 'fr' => 'http://fr.' . substr($current_url, 10, $url_length),
+            ];
+
+            $this->set(compact("language_urls"));
+            $this->set("current_language", $this->current_subdomain);
+
             // detecta o idioma atual e carrega a localização correta
             switch($this->current_subdomain) {
                 case 'pt':
                     I18n::locale('pt_BR');
+                    $this->current_language_id = 1;
                 break;
                 case 'en':
                     I18n::locale('en_US');
+                    $this->current_language_id = 2;
                 break;
                 case 'es':
                     I18n::locale('es_ES');
+                    $this->current_language_id = 4;
                 break;
                 case 'fr':
                     I18n::locale('fr_FR');
+                    $this->current_language_id = 3;
                 break;
             }
     }

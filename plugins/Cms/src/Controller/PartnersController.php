@@ -10,6 +10,9 @@ use Cms\Controller\AppController;
  */
 class PartnersController extends AppController
 {
+    public $paginate = [
+        'finder' => 'language',
+    ];
 
     public function initialize()
     {

@@ -36,6 +36,16 @@
                       BBLENDER PACTA
                   </a>
 
+                    <div class="dropdown dropdown-primary">
+                        <a href="#" class="btn btn-primary btn-idioma dropdown-toggle" data-toggle="dropdown"><?php echo __("Idioma Atual:"); ?>  <span class="flag flag-<?php echo $current_language; ?>"></span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="<?php echo $language_urls['en']; ?>cms">Change to <span class="flag flag-us"></span> </a></li>
+                            <li><a href="<?php echo $language_urls['fr']; ?>cms">Passer au <span class="flag flag-fr"></span> </a></li>
+                            <li><a href="<?php echo $language_urls['es']; ?>cms">Cambie a <span class="flag flag-es"></span> </a></li>
+                            <li><a href="<?php echo $language_urls['pt']; ?>cms">Trocar para <span class="flag flag-br"></span> </a></li>
+                          </ul>
+                    </div>
+
               </div><!-- /.container-fluid -->
             </nav>
 
@@ -45,7 +55,7 @@
 
                     <div class="col-md-12">
 
-                        <h1 class="titulo-painel">Painel de Controle <small></small></h1>
+                        <h1 class="titulo-painel"><?php echo __("Painel de Controle"); ?> <small></small></h1>
 
                         <hr>
 
