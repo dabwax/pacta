@@ -1,6 +1,10 @@
 <div id="box-planos" class="col-lg-4 sombra-topo borda-verde1 bg-cinza-claro boxex height-servicos bordatopverde2">
     <h2 class="tit-verde1"><span class="barra1"></span>><?php echo __('PLANOS'); ?> <span class="fontitalic"><?php echo __('FAREM'); ?></span></h2>
 
+    <?php if(empty($planos->toArray())) : ?>
+        <div class="alert alert-danger">Não há planos para este idioma.</div>
+    <?php endif; ?>
+
     <div id="carousel-planos" class="planos carousel slide" data-ride="carousel">
 
         <div class="carousel-inner">

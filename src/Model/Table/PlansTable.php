@@ -5,13 +5,15 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use App\Model\Entity\Post;
+use Cms\Model\Entity\Plan;
 
 /**
- * Posts Model
+ * Plans Model
  *
+ * @property \Cake\ORM\Association\HasMany $Affiliates
+ * @property \Cake\ORM\Association\HasMany $Contracts
  */
-class PostsTable extends Table
+class PlansTable extends Table
 {
 
     /**
@@ -22,10 +24,18 @@ class PostsTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('posts');
-        $this->displayField('title');
+        $this->table('plans');
+        $this->displayField('name');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->hasMany('Affiliates', [
+            'foreignKey' => 'plan_id',
+            'className' => 'Cms.Affiliates'
+        ]);
+        $this->hasMany('Contracts', [
+            'foreignKey' => 'plan_id',
+            'className' => 'Cms.Contracts'
+        ]);
     }
 
     public function findLanguage(Query $query, array $options)
@@ -52,6 +62,7 @@ class PostsTable extends Table
         ]);
         return $query;
     }
+
 
     public function beforeMarshal($event, $data, $options)
     {

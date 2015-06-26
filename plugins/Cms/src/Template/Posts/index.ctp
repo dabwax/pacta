@@ -23,8 +23,8 @@
             <td><?= h($post->title) ?></td>
             <td><?= h($post->published_date) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $post->id]) ?>
-                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $post->id], ['confirm' => __('Are you sure you want to delete # {0}?', $post->id)]) ?>
+                <?= $this->Html->link(__('Editar'), ['action' => 'edit', $post->id], ['class' => 'btn btn-primary'] ) ?>
+                <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $post->id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $post->id)]) ?>
             </td>
         </tr>
 

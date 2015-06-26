@@ -1,6 +1,10 @@
 <div id="box-parceiros" class="col-lg-4 sombra-topo borda-verde1 bg-cinza-claro boxex height-servicos bordatopverde2">
     <h2 class="tit-verde1"><span class="barra1"></span><?php echo __('PARCEIROS'); ?></h2>
 
+    <?php if(empty($parceiros->toArray())) : ?>
+        <div class="alert alert-danger">Não há parceiros para este idioma.</div>
+    <?php endif; ?>
+
     <div id="carousel-parceiros" class="parceiros carousel slide" data-ride="parceiro">
         <div class="carousel-inner">
 
@@ -30,5 +34,6 @@
 
 
     </div>
+
 
 </div>

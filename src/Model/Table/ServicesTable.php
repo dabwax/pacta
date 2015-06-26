@@ -5,13 +5,13 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use App\Model\Entity\Post;
+use Cms\Model\Entity\Service;
 
 /**
- * Posts Model
+ * Services Model
  *
  */
-class PostsTable extends Table
+class ServicesTable extends Table
 {
 
     /**
@@ -22,8 +22,8 @@ class PostsTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('posts');
-        $this->displayField('title');
+        $this->table('services');
+        $this->displayField('name');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
     }

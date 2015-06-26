@@ -19,6 +19,9 @@
 
 <div class="col-lg-1 col-md-1 col-sm-1 sombra-topo linha-verdeclaro-lateral verde-2 hidden-xs margleftneg">&nbsp;</div>
 <div class="col-lg-12 col-md-12 col-sm-12 sombra-interna bg-cinza-claro boxex bordatopverd2">
+
+    <?php if(!empty($servico)) : ?>
+
     <h2 class="tit-verde1"><span class="barra1"></span><?php echo strtoupper($servico->name); ?></h2>
 
     <div class="panel-group sanfona-servicos" id="accordion" role="tablist" aria-multiselectable="true">
@@ -64,6 +67,14 @@
       <?php $i++; endforeach; ?>
 
         </div>
+
+      <?php else : ?>
+        <div class="alert alert-danger">Não há página de Serviços para este idioma.</div>
+      <?php endif; ?>
+
+      <?php if(empty($servicos->toArray())) : ?>
+        <div class="alert alert-danger">Não há serviços para este idioma.</div>
+      <?php endif; ?>
     </div>
 </div>
 

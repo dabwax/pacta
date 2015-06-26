@@ -5,13 +5,13 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use App\Model\Entity\Post;
+use Cms\Model\Entity\Partner;
 
 /**
- * Posts Model
+ * Partners Model
  *
  */
-class PostsTable extends Table
+class PartnersTable extends Table
 {
 
     /**
@@ -22,7 +22,7 @@ class PostsTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('posts');
+        $this->table('partners');
         $this->displayField('title');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
@@ -52,6 +52,7 @@ class PostsTable extends Table
         ]);
         return $query;
     }
+
 
     public function beforeMarshal($event, $data, $options)
     {

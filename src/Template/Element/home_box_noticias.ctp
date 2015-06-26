@@ -1,6 +1,10 @@
 <div id="box-noticias" class="col-lg-6 sombra-interna bg-cinza-escuro boxex">
     <h2 class="tit-verde2"><span class="barra2"></span><?php echo __('NOTÍCIAS'); ?></h2>
 
+    <?php if(empty($noticias->toArray())) : ?>
+        <div class="alert alert-danger">Não há notícias para este idioma.</div>
+    <?php endif; ?>
+
   <?php foreach($noticias as $n) : ?>
     <section class="noticias-home">
         <a class="ver-mais-noticias" data-json='<?php echo json_encode($n->toArray()); ?>'><img src="img/icone-leia-mais.png" height="22" width="21"></a>

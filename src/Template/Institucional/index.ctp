@@ -21,11 +21,18 @@
         <div class="col-lg-1 sombra-topo linha-verdeclaro-lateral verde-2 hidden-xs height-servicos">&nbsp;</div>
 
         <div id="box-servicos" class="col-lg-6 sombra-interna bg-cinza-claro boxex height-servicos bordatopverde2">
-          <h2 class="tit-verde1" style="text-transform: uppercase;"><span class="barra1"></span><?php echo $institucional->name; ?></h2>
+          <?php if(!empty($institucional)) : ?>
+            <h2 class="tit-verde1" style="text-transform: uppercase;"><span class="barra1"></span><?php echo $institucional->name; ?></h2>
 
-          <?php echo $institucional->content; ?>
+            <?php echo $institucional->content; ?>
+          <?php else : ?>
+            <div class="alert alert-danger">
+              Não há página institucional para este idioma.
+            </div>
+          <?php endif; ?>
         </div> <!-- #box-servicos -->
         <div id="box-servicos" class="col-lg-6 sombra-interna bg-cinza-claro boxex height-servicos bordatopverde2">
+        <?php if(!empty($o_que_fazemos)) : ?>
           <h2 class="tit-verde1" style="text-transform: uppercase;"><span class="barra1"></span><?php echo $o_que_fazemos->name; ?></h2>
 
           <?php echo $o_que_fazemos->content; ?>
@@ -53,7 +60,11 @@
                           </div>
                       </div>
                 </div> <!-- #tab -->
-
+              <?php else: ?>
+                <div class="alert alert-danger">
+                  Não há página de O que fazemos para este idioma.
+                </div>
+              <?php endif; ?>
         </div> <!-- #box-servicos -->
 
     </div> <!-- #ancora -->

@@ -34,10 +34,10 @@
 
 </div> <!-- #myCarousel -->
 
-  <a id="flag-br" href="#"><img src="<?php echo $this->Url->build("/img/bandeira-br.png"); ?>" height="21" width="22"  alt="" title=""></a>
-  <a id="flag-us" href="#"><img src="<?php echo $this->Url->build("/img/bandeira-usa.png"); ?>" height="21" width="22" alt="" title=""></a>
-  <a id="flag-fr" href="#"><img src="<?php echo $this->Url->build("/img/bandeira-franca.png"); ?>" height="21" width="22" alt="" title=""></a>
-  <a id="flag-es" href="#"><img src="<?php echo $this->Url->build("/img/bandeira-espanha.png"); ?>" height="21" width="22" alt="" title=""></a>
+  <a id="flag-br" href="<?php echo $language_urls['pt']; ?>"><img src="<?php echo $this->Url->build("/img/bandeira-br.png"); ?>" height="21" width="22"  alt="" title=""></a>
+  <a id="flag-us" href="<?php echo $language_urls['en']; ?>"><img src="<?php echo $this->Url->build("/img/bandeira-usa.png"); ?>" height="21" width="22" alt="" title=""></a>
+  <a id="flag-fr" href="<?php echo $language_urls['fr']; ?>"><img src="<?php echo $this->Url->build("/img/bandeira-franca.png"); ?>" height="21" width="22" alt="" title=""></a>
+  <a id="flag-es" href="<?php echo $language_urls['es']; ?>"><img src="<?php echo $this->Url->build("/img/bandeira-espanha.png"); ?>" height="21" width="22" alt="" title=""></a>
 
 
   <div id="login">

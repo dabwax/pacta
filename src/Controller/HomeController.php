@@ -37,23 +37,23 @@ class HomeController extends BaseController
         $tableNewsletter = TableRegistry::get('Newsletter');
 
         // Busca os banners
-        $banners = $tableBanners->find()->order(['created' => 'DESC'])->all();
+        $banners = $tableBanners->find('language')->order(['created' => 'DESC'])->all();
 
         // Busca a página de serviço
-        $servico = $tablePages->find()->where(['subname' => 'Serviços'])->first();
+        $servico = $tablePages->find('language')->where(['subname' => 'Serviços'])->first();
 
         // Busca os parceiros
-        $parceiros = $tablePartners->find()->order(['created' => 'DESC'])->all();
+        $parceiros = $tablePartners->find('language')->order(['created' => 'DESC'])->all();
 
         // Busca os planos
-        $planos = $tablePlans->find()->order(['created' => 'DESC'])->all();
+        $planos = $tablePlans->find('language')->order(['created' => 'DESC'])->all();
 
         // Busca as noticias
-        $noticias = $tablePosts->find()->order(['published_date' => 'DESC']);
+        $noticias = $tablePosts->find('language')->order(['published_date' => 'DESC']);
         $noticias = $this->Paginate($noticias);
 
         // Busca a página de newsletter
-        $newsletter = $tablePages->find()->where(['subname' => 'Newsletter'])->first();
+        $newsletter = $tablePages->find('language')->where(['subname' => 'Newsletter'])->first();
         $newsletterEntity = $tableNewsletter->newEntity();
 
         $this->set(compact("newsletter", "newsletterEntity", "noticias", "banners", "servico", "parceiros", "planos"));

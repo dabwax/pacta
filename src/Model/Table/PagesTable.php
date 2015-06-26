@@ -33,27 +33,50 @@ class PagesTable extends Table
         ]);
     }
 
-    /**
-     * Default validation rules.
-     *
-     * @param \Cake\Validation\Validator $validator Validator instance.
-     * @return \Cake\Validation\Validator
-     */
-    public function validationDefault(Validator $validator)
+    public function findLanguage(Query $query, array $options)
     {
-        $validator
-            ->add('id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('id', 'create');
+        $current_subdomain = array_shift((explode(".",$_SERVER['HTTP_HOST'])));
 
-        $validator
-            ->allowEmpty('name');
+        switch($current_subdomain) {
+            case 'pt':
+                $language_id = 1;
+            break;
+            case 'en':
+                $language_id = 2;
+            break;
+            case 'es':
+                $language_id = 4;
+            break;
+            case 'fr':
+                $language_id = 3;
+            break;
+        }
 
-        $validator
-            ->allowEmpty('content');
+        $query->where([
+            $this->_alias . '.language_id' => $language_id,
+        ]);
+        return $query;
+    }
 
-        $validator
-            ->allowEmpty('slug');
+    public function beforeMarshal($event, $data, $options)
+    {
+        $current_subdomain = array_shift((explode(".",$_SERVER['HTTP_HOST'])));
 
-        return $validator;
+        switch($current_subdomain) {
+            case 'pt':
+                $language_id = 1;
+            break;
+            case 'en':
+                $language_id = 2;
+            break;
+            case 'es':
+                $language_id = 4;
+            break;
+            case 'fr':
+                $language_id = 3;
+            break;
+        }
+
+        $data['language_id'] = $language_id;
     }
 }

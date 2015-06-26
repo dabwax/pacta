@@ -5,13 +5,13 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use App\Model\Entity\Post;
+use Cms\Model\Entity\Banner;
 
 /**
- * Posts Model
+ * Banners Model
  *
  */
-class PostsTable extends Table
+class BannersTable extends Table
 {
 
     /**
@@ -22,7 +22,7 @@ class PostsTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('posts');
+        $this->table('banners');
         $this->displayField('title');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
