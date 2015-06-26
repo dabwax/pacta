@@ -50,10 +50,15 @@
       <li>
          <div class="row">
             <div class="col-md-13">
+
+
+               <?php if(!$user_logged) : ?>
+                <?php echo $this->Form->create($affiliateEntity); ?>
                <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="form-login">
                   <h2 class="txt-center"><?php echo __('LOGIN'); ?></h2>
                   <div class="form-group">
                      <label class="sr-only" for="exampleInputEmail2"><?php echo __('USUÁRIO'); ?></label>
+                     <?php echo $this->Form->input("responsible_email", ['label' => false, 'div' => false] ); ?>
                      <input type="email" class="form-control" id="exampleInputEmail2" placeholder="<?php echo __('Endereço de E-mail'); ?>" required>
                   </div>
                   <div class="form-group">
@@ -64,8 +69,10 @@
                      <button type="submit" class="btn btn-success btn-block btn-login"><?php echo __('ENVIAR'); ?></button>
                   </div>
                   <p id="esqueceu-senha" class="txt-center"><a href="#"><?php echo __('Esqueci minha senha'); ?></a></p>
-               </form>
+               <?php echo $this->Form->end(); ?>
+             <?php endif; ?>
 
+               <?php if($user_logged) : ?>
                <section id="menu-usuario">
                   <h2 class="txt-center"><?php echo __('EMPRESA'); ?></h2>
                   <p class="dados-usuarios">meuemail@email.com</p>
@@ -79,6 +86,7 @@
                     <li role="presentation"><a href="#"><?php echo __('SAIR'); ?></a></li>
                   </ul>
                </section>
+             <?php endif; ?>
 
             </div>
          </div>

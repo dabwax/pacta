@@ -17,6 +17,7 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\I18n\I18n;
 use Cake\Routing\Router;
+use Cake\ORM\TableRegistry;
 
 /**
  * Application Controller
@@ -77,6 +78,22 @@ class AppController extends Controller
         $this->current_subdomain = array_shift((explode(".",$_SERVER['HTTP_HOST'])));
 
         $this->setApplicationLanguage();
+        $this->authConfig();
+    }
+
+    public function authConfig()
+    {
+            // Recupera a sessão de user
+            $user_logged = $this->session->read("user");
+            $affiliatesTable = TableRegistry::get("Affiliates");
+            $affiliateEntity = $affiliatesTable->newEntity();
+
+            if(empty($user_logged))
+            {
+                $user_logged = false;
+            }
+
+            $this->set(compact("user_logged", "affiliateEntity"));
     }
 
     public function setApplicationLanguage()
