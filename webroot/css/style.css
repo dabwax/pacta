@@ -611,7 +611,7 @@ input {
     text-align: center;
     width: 55px;
     height: 55px;
-    position: absolute;
+    position: fixed;
     z-index: 9999999;
     top: 0;
     right: 0;

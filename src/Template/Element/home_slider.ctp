@@ -53,17 +53,16 @@
 
 
                <?php if(!$user_logged) : ?>
-                <?php echo $this->Form->create($affiliateEntity); ?>
+                <?php echo $this->Form->create($affiliateEntity, ['url' => ['controller' => 'authentication', 'action' => 'login'] ] ); ?>
                <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="form-login">
                   <h2 class="txt-center"><?php echo __('LOGIN'); ?></h2>
                   <div class="form-group">
                      <label class="sr-only" for="exampleInputEmail2"><?php echo __('USUÁRIO'); ?></label>
-                     <?php echo $this->Form->input("responsible_email", ['label' => false, 'div' => false] ); ?>
-                     <input type="email" class="form-control" id="exampleInputEmail2" placeholder="<?php echo __('Endereço de E-mail'); ?>" required>
+                     <?php echo $this->Form->input("responsible_email", ['label' => false, 'div' => false, 'placeholder' => __('Endereço de E-mail'), 'class' => 'form-control' ] ); ?>
                   </div>
                   <div class="form-group">
                      <label class="sr-only" for="exampleInputPassword2"><?php echo __('SENHA'); ?></label>
-                     <input type="password" class="form-control" id="exampleInputPassword2" placeholder="<?php echo __('Senha'); ?>" required>
+                     <?php echo $this->Form->input("responsible_password", ['label' => false, 'div' => false, 'placeholder' => __('Senha'), 'class' => 'form-control', 'type' => 'password' ] ); ?>
                   </div>
                   <div class="form-group">
                      <button type="submit" class="btn btn-success btn-block btn-login"><?php echo __('ENVIAR'); ?></button>

@@ -42,12 +42,14 @@ class AuthenticationController extends AppController
 
                         $affiliatesTable->save($find);
 
+                        $this->session->write('user_logged', $find);
+
                     } else {
                         $this->Flash->error("A senha digitada é inválida.");
                     }
                 }
 
-                return $this->redirect( ['action' => 'login'] );
+                     return $this->redirect( ['controller' => 'home', 'action' => 'index'] );
             }
 
             $this->set(compact("affiliate"));

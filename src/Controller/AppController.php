@@ -84,7 +84,7 @@ class AppController extends Controller
     public function authConfig()
     {
             // Recupera a sessão de user
-            $user_logged = $this->session->read("user");
+            $user_logged = $this->session->read("user_logged");
             $affiliatesTable = TableRegistry::get("Affiliates");
             $affiliateEntity = $affiliatesTable->newEntity();
 
